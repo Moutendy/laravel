@@ -29,12 +29,7 @@
     </tr>
   </thead>
   <tfoot> 
-  @foreach($adminModel as $adminModels)
-  <tr>
-  <td>{{$adminModels->email}}</td>
-      <td>{{$adminModels->password}}</td>
-  </tr>
-  @endforeach
+
 
 
 <tfoot>
@@ -42,7 +37,7 @@
             </div>
             <div class="column right has-text-centered">
               <h1 class="title is-4">Ajouter un Admin</h1>
-              <form form method="post" action="/envoiadmin">
+              <form method="post" action="/envoiadmin">
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">

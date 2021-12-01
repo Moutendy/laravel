@@ -28,23 +28,30 @@
       <th><abbr title="lien">lien</abbr></th>
     </tr>
   </thead>
+
   <tfoot>
-  @foreach($formationaffiche as $formationaffiches)
-  <tr>
-  <td>{{$formationaffiches->libelle}}</td>
-      <td>{{$formationaffiches->code}}</td>
-      <td>{{$formationaffiches->description}}</td>
-      <td>{{$formationaffiches->lien}}</td>
-  </tr>
-  @endforeach
-<tfoot>
+    <tr>
+      <td>
+  <?php use App\Models\FormationModel;
+  
+ 
+
+$formationaffiche = FormationModel::all();
+$count = count($formationaffiche);
+for ($i = 0; $i < $count; $i++) {
+ //echo $formationaffiche['libelle'];
+}
+ ?>
+ </td>
+ </tr>
+</tfoot>
 </table>
             </div>
       
             <div class="column right has-text-centered">
               <h1 class="title is-4">Formation</h1>
               <p class="description">nouvelle Formation</p>
-              <form form method="post" action="/envoiformation">
+              <form form method="post" action="/envoiformation" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">
@@ -64,7 +71,7 @@
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="lien" placeholder="lien">
+                    <input class="input is-small" type="file" name="lien" placeholder="lien">
                   </div>
                 </div>
                 <button class="button is-block is-primary is-fullwidth is-small">Submit</button>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AdminModel;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -25,14 +25,15 @@ class AdminController extends Controller
        ,['contactModel'=>$contactModels]
      */
 
-    $adminModels= new AdminModel;
+    $adminModels= new User;
+
     $adminModels->email=request('email');
     $adminModels->password=request('password');
     $adminModels->save();
 
-    $adminModels = AdminModel::all();
+   
 
-       return view('/ajouteradmin',['adminModel'=>$adminModels]);
+       return view('/ajouteradmin');
    }
 
 }

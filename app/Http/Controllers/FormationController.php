@@ -17,13 +17,16 @@ class FormationController extends Controller
     public  function envoiformation(Request $resultat)
     {
        $formationModels= new FormationModel;
-       
+       $resultat->file('lien')->store('docs');
        $formationModels->code=request('code');
        $formationModels->description=request('description');
        $formationModels->libelle=request('libelle');
-       $formationModels->lien=request('lien');
+       $formationModels->lien=(string)$resultat->file('lien')->store('docs');
+
        $formationModels->save();
-       $formationaffiche = FormationModel::all();
-       return view('/ajouterformation',['formationaffiche'=>$formationaffiche]);
+      
+      
+
+       return view('/ajouterformation');
    }
 }

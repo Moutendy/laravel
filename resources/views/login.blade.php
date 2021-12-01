@@ -23,19 +23,18 @@
                     <hr class="login-hr">
                     <p class="subtitle has-text-black">Please login to proceed.</p>
                     <div class="box">
-                        <figure class="avatar">
-                            <img src="https://placehold.it/128x128">
-                        </figure>
-                        <form>
+                       
+                        <form method="post" action="/">
+                        {{ csrf_field() }}
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                                    <input class="input is-small" type="email" name="email" placeholder="Your Email" autofocus="">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input is-large" type="password" placeholder="Your Password">
+                                    <input class="input is-small" type="password" name="password" placeholder="password">
                                 </div>
                             </div>
                             <div class="field">
@@ -44,7 +43,7 @@
                   Remember me
                 </label>
                             </div>
-                            <button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                            <button class="button is-block is-info is-small is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
                     </div>
                     <p class="has-text-grey">
