@@ -12,8 +12,6 @@ class TemoingnageController extends Controller
 
     public function ajoutertemoingage()
     {
-
-
         return view('/ajoutertemoingnage');
     }
 

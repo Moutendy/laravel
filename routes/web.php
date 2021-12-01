@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TemoingnageController;
+use App\Http\Controllers\PresentationController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +70,42 @@ Route::get('/livreaffiche/{id}', function ($id) {
      
     return view('livreaffiche',['livre'=>$id]);
 });
+//router temoignage
 Route::get('/ajoutertemoingage', [TemoingnageController::class, 'ajoutertemoingage']);
 
 Route::post('/envoitemoignage', [TemoingnageController::class, 'envoitemoignage']);
 
 Route::get('/actualitetemoingnage', [TemoingnageController::class, 'affichermoingage']);
+
+//router presentation
+Route::get('/ajouterpresentation', [PresentationController::class, 'ajouterpresentation']);
+
+Route::post('/envoipresentation', [PresentationController::class, 'envoipresentation']);
+
+Route::get('/actualitepresentation', [TemoingnageController::class, 'afficherpresentation']);
+
+
+//router formation
+Route::get('/ajouterformation', [FormationController::class, 'ajouterformation']);
+
+Route::post('/envoiformation', [FormationController::class, 'envoiformation']);
+
+Route::get('/actualiteformation', [FormationController::class, 'afficherformation']);
+
+
+//router contact
+Route::get('/ajoutercontact', [ContactController::class, 'ajoutercontact']);
+
+Route::post('/envoicontact', [ContactController::class, 'envoicontact']);
+
+Route::get('/actualitecontact', [ContactController::class, 'affichercontact']);
+
+
+//router admin
+Route::get('/ajouteradmin', [AdminController::class, 'ajouteradmin']);
+
+Route::post('/envoiadmin', [AdminController::class, 'envoiadmin']);
+
+Route::get('/actualiteadmin', [AdminController::class, 'afficheradmin']);
 
 
