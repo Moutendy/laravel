@@ -10,9 +10,9 @@ class TemoingnageController extends Controller
 {
     //
 
-    public function ajoutertemoingage()
+    public function ajoutertemoignage()
     {
-        return view('/ajoutertemoingnage');
+        return view('temoignage');
     }
 
     public function envoitemoignage()
@@ -26,7 +26,7 @@ class TemoingnageController extends Controller
         $temoingnages->description=request('description');
         $temoingnages->lien=request('lien');
         $temoingnages->save();
-        return redirect('/ajoutertemoingage');
+        return redirect('ajoutertemoingage');
         
     }
 

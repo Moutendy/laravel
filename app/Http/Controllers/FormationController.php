@@ -17,12 +17,12 @@ class FormationController extends Controller
     public  function envoiformation(Request $resultat)
     {
        $formationModels= new FormationModel;
-       $resultat->file('lien')->store('docs');
+      
        $formationModels->code=request('code');
        $formationModels->description=request('description');
        $formationModels->libelle=request('libelle');
-       $formationModels->lien=(string)$resultat->file('lien')->store('docs');
-
+       $formationModels->lien=(string)$resultat->file('lien')->store('image');
+           
        $formationModels->save();
       
       
