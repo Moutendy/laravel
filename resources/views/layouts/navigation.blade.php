@@ -12,15 +12,20 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{route('dashboard')}}" :active="request()->routeIs('dashboard')">
-                        {{ __('Home') }}
+                        {{ __('ADMIN') }}
 </x-nav-link>
-<x-nav-link href="{{url('ajoutertemoingage')}}" >
+<x-nav-link href="{{url('ajouterpresentation')}}" >
                         {{ __('Ajouter Temoingage') }}
 </x-nav-link>
 <x-nav-link href="{{url('livre')}}" >
                         {{ __('Ajouter Livre') }}
 </x-nav-link>
-
+<x-nav-link href="{{url('ajouterformation')}}" >
+                        {{ __('Ajouter Formation') }}
+</x-nav-link>
+<x-nav-link href="{{url('ajoutercontact')}}" >
+                        {{ __('Ajouter Contact') }}
+</x-nav-link>
                 </div>
             </div>
 
@@ -77,12 +82,27 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
+                
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+               
             </div>
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
+                <x-responsive-nav-link href="{{url('ajoutercontact')}}" >
+     <div class="font-medium text-base text-gray-800">{{ __('CONTACT') }}</div>
+</x-responsive-nav-link>
+
+<x-responsive-nav-link href="{{url('ajouterpresentation')}}" >
+     <div class="font-medium text-base text-gray-800">{{ __('PRESENTATION') }}</div>
+</x-responsive-nav-link>
+<x-responsive-nav-link href="{{url('livre')}}" >
+     <div class="font-medium text-base text-gray-800">{{ __('LIVRE') }}</div>
+</x-responsive-nav-link>
+<x-responsive-nav-link href="{{url('ajouterformation')}}" >
+     <div class="font-medium text-base text-gray-800">{{ __('FORMATION') }}</div>
+</x-responsive-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
@@ -91,6 +111,10 @@
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
+                   
+                   
+                    
+                   
                 </form>
             </div>
         </div>

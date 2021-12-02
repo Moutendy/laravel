@@ -58,6 +58,11 @@ Route::post('/envoicontact', [ContactController::class, 'envoicontact']);
 
 Route::get('/actualitecontact', [ContactController::class, 'affichercontact']);
 
+//router aut admin
+Route::get('/authadmin', [AdminController::class, 'ajouteradmin']);
+
+
+
 Route::post('/livre', function () {
 
     request()->validate([
@@ -96,3 +101,9 @@ Route::get('/livreaffiche/{id}', function ($id) {
      
     return view('livreaffiche',['livre'=>$id]);
 });
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/admin', function () {
+      return view('admin.dashboard');
+    })->name('dashboard');
+  });
