@@ -26,29 +26,35 @@
       <th><abbr title="code">code</abbr></th>
       <th><abbr title="description">description</abbr></th>
       <th><abbr title="lien">lien</abbr></th>
+
     </tr>
   </thead>
 
   <tfoot>
-    <tr>
-      <td>
+    
+     
   <?php use App\Models\FormationModel;
   
  
-
 $formationaffiche = FormationModel::all();
 $count = count($formationaffiche);
-for ($i = 0; $i < $count; $i++) {
- //echo $formationaffiche['libelle'];
+foreach($formationaffiche as $formations) {
+  
+  echo  "<tr><td>".$formations->code."</td>";
+ echo  "<td>".$formations->code."</td>";
+ echo  "<td>".$formations->description."</td>";
+ echo  "<td>".$formations->lien."</td>
+ </tr>";
+ 
 }
  ?>
- </td>
- </tr>
+ 
 </tfoot>
 </table>
             </div>
       
             <div class="column right has-text-centered">
+                <img src="image/im1.png">
               <h1 class="title is-4">Formation</h1>
               <p class="description">nouvelle Formation</p>
               <form form method="post" action="/envoiformation" enctype="multipart/form-data">
@@ -120,80 +126,65 @@ for ($i = 0; $i < $count; $i++) {
       --textDark: hsla(0, 0%, 0%, 0.66);
       --textLight: hsla(0, 0%, 0%, 0.33);
     }
-
     body {
       background: var(--background);
       height: 100vh;
       color: var(--textDark);
     }
-
     .field:not(:last-child) {
       margin-bottom: 1rem;
     }
-
     .register {
       margin-top: 10rem;
       background: white;
       border-radius: 10px;
     }
-
     .left,
     .right {
       padding: 4.5rem;
     }
-
     .left {
       border-right: 5px solid var(--background);
     }
-
     .left .title {
       font-weight: 800;
       letter-spacing: -2px;
     }
-
     .left .colored {
       color: var(--brandColor);
       font-weight: 500;
       margin-top: 1rem !important;
       letter-spacing: -1px;
     }
-
     .left p {
       color: var(--textLight);
       font-size: 1.15rem;
     }
-
     .right .title {
       font-weight: 800;
       letter-spacing: -1px;
     }
-
     .right .description {
       margin-top: 1rem;
       margin-bottom: 1rem !important;
       color: var(--textLight);
       font-size: 1.15rem;
     }
-
     .right small {
       color: var(--textLight);
     }
-
     input {
       font-size: 1rem;
     }
-
     input:focus {
       border-color: var(--brandColor) !important;
       box-shadow: 0 0 0 1px var(--brandColor) !important;
     }
-
     .fab,
     .fas {
       color: var(--textLight);
       margin-right: 1rem;
     }
-
   </style>
 
 </html>

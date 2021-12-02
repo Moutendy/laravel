@@ -29,14 +29,7 @@
     </tr>
   </thead>
   <tfoot> 
-  @foreach($contactModel as $contactModels)
-  <tr>
-  <td>{{$contactModels->libelle}}</td>
-      <td>{{$contactModels->code}}</td>
-      <td>{{$contactModels->description}}</td>
-      <td>{{$contactModels->lien}}</td>
-  </tr>
-  @endforeach
+ 
 
 
 <tfoot>

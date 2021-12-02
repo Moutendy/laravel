@@ -21,16 +21,7 @@
               <h2 class="title is-3">La liste des livres</h2>
               <h3 class="subtitle colored is-4">vous pouvz ajouter nos livre en ligne.</h3>
               <p>
-              <ul>
-    @foreach($livre as $livres)
-    <li>{{$livres['libelle']}}</li>
-    <li>{{$livres->code}}</li>
-    <li>{{$livres->description}}</li>
-    <li>{{$livres->lien}}</li>
-  
-    <li><a href="/livreaffiche/5">suprimer</a></li>
-    @endforeach
-</ul>
+    
               </p>
             </div>
             <div class="column right has-text-centered">
@@ -43,7 +34,7 @@
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="text" name="code" placeholder="code" value="{{$livres->code}}">
+                    <input class="input is-medium" type="text" name="code" placeholder="code">
                     @if($errors->has('code'))
                     <p class="subtitle colored is-4">{{$errors->first('code')}}</p>
                     @endif

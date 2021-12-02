@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 //router temoignage
-Route::get('/ajoutertemoingage', [TemoingnageController::class, 'ajoutertemoingage']);
+Route::get('/ajoutertemoignage', [TemoingnageController::class, 'ajoutertemoignage']);
 
 Route::post('/envoitemoignage', [TemoingnageController::class, 'envoitemoignage']);
 
@@ -81,6 +81,7 @@ Route::get('/livre', function () {
     $livreaffiche = App\Models\livre::all(); 
     return view('livre',['livre'=>$livreaffiche]);
 }); 
+
 
 Route::get('/livreaffiche', function () {
     

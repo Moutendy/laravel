@@ -28,16 +28,7 @@
       <th><abbr title="lien">lien</abbr></th>
     </tr>
   </thead>
-  <tfoot> @foreach($presentationaffiche as $presentationaffiches)
-    <tr>
-      </td>
-      <td>{{$presentationaffiches->libelle}}</td>
-      <td>{{$presentationaffiches->code}}</td>
-      <td>{{$presentationaffiches->description}}</td>
-      <td>{{$presentationaffiches->lien}}</td>
-    </tr>
-
-@endforeach
+  <tfoot> 
 <tfoot>
 </table>
             </div>
