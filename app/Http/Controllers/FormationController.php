@@ -21,12 +21,22 @@ class FormationController extends Controller
        $formationModels->code=request('code');
        $formationModels->description=request('description');
        $formationModels->libelle=request('libelle');
-       $formationModels->lien=(string)$resultat->file('lien')->store('image');
+      
+       $file = $resultat->file('lien');
+
+       $name = $file->getClientOriginalName();
+       $extension = $file->getClientOriginalExtension();
+
+       $resultat->file('lien')->move('storage',$name);
+       $formationModels->lien=$name;
            
        $formationModels->save();
-      
-      
+       
 
        return view('/ajouterformation');
    }
+
+   
+
+
 }

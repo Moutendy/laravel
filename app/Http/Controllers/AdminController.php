@@ -15,25 +15,6 @@ class AdminController extends Controller
 
     
 
-    public  function envoiadmin(Request $resultat)
-    {
-     /* 
-      
-      
-        
-      
-       ,['contactModel'=>$contactModels]
-     */
-
-    $adminModels= new User;
-
-    $adminModels->email=request('email');
-    $adminModels->password=request('password');
-    $adminModels->save();
-
-   
-
-       return view('/ajouteradmin');
-   }
+    
 
 }

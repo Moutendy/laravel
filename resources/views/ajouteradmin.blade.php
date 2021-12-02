@@ -1,174 +1,54 @@
-<!DOCTYPE html>
-<html>
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+           
+        </x-slot>
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register - Free Bulma template</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="../css/register.css">
-  </head>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-  <body>
-    <section class="container">
-      <div class="columns is-multiline">
-        <div class="column is-8 is-offset-2 register">
-        <div class="columns">
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <div class="column left">
-              <h2 class="subtitle colored is-10">liste des Admin.</h2>
-              <table class="table table is-striped is-small">
-  <thead>
-    <tr>
-      <th><abbr title="email">email</abbr></th>
-      <th><abbr title="password">password</abbr></th>
-     
-    </tr>
-  </thead>
-  <tfoot> 
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
+            <!-- Email Address -->
+            <div>
+                <x-label for="email" :value="__('Email')" />
 
-
-<tfoot>
-</table>
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
-            <div class="column right has-text-centered">
-              <h1 class="title is-4">Ajouter un Admin</h1>
-              <form method="post" action="/envoiadmin">
-              {{ csrf_field() }}
-                <div class="field">
-                  <div class="control">
-                    <input class="input is-small" type="email" name="email" placeholder="email">
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="control">
-                    <input class="input is-small" type="password" name="password" placeholder="password">
-                  </div>
-                </div>
-                <button class="button is-block is-primary is-fullwidth is-small">Submit</button>
-                <br />
-                <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
-              </form>
+
+            <!-- Password -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Password')" />
+
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
             </div>
-          </div>
-        </div>
-        <div class="column is-8 is-offset-2">
-          <br>
-          <nav class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <span class="icon">
-                  <i class="fab fa-twitter"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fab fa-facebook"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fab fa-instagram"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fas fa-envelope"></i>
-                </span>
-              </div>
+
+            <!-- Remember Me -->
+            <div class="block mt-4">
+                <label for="remember_me" class="inline-flex items-center">
+                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
             </div>
-            <div class="level-right">
-              <small class="level-item" style="color: var(--textLight)">
-                &copy; Super Cool Website. All Rights Reserved.
-              </small>
+
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+
+                <x-button class="ml-3">
+                    {{ __('Log in') }}
+                </x-button>
             </div>
-          </nav>
-        </div>
-      </div>
-    </section>
-  </body>
-  <style>
-    :root {
-      --brandColor: hsl(166, 67%, 51%);
-      --background: rgb(247, 247, 247);
-      --textDark: hsla(0, 0%, 0%, 0.66);
-      --textLight: hsla(0, 0%, 0%, 0.33);
-    }
-
-    body {
-      background: var(--background);
-      height: 100vh;
-      color: var(--textDark);
-    }
-
-    .field:not(:last-child) {
-      margin-bottom: 1rem;
-    }
-
-    .register {
-      margin-top: 10rem;
-      background: white;
-      border-radius: 10px;
-    }
-
-    .left,
-    .right {
-      padding: 4.5rem;
-    }
-
-    .left {
-      border-right: 5px solid var(--background);
-    }
-
-    .left .title {
-      font-weight: 800;
-      letter-spacing: -2px;
-    }
-
-    .left .colored {
-      color: var(--brandColor);
-      font-weight: 500;
-      margin-top: 1rem !important;
-      letter-spacing: -1px;
-    }
-
-    .left p {
-      color: var(--textLight);
-      font-size: 1.15rem;
-    }
-
-    .right .title {
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .right .description {
-      margin-top: 1rem;
-      margin-bottom: 1rem !important;
-      color: var(--textLight);
-      font-size: 1.15rem;
-    }
-
-    .right small {
-      color: var(--textLight);
-    }
-
-    input {
-      font-size: 1rem;
-    }
-
-    input:focus {
-      border-color: var(--brandColor) !important;
-      box-shadow: 0 0 0 1px var(--brandColor) !important;
-    }
-
-    .fab,
-    .fas {
-      color: var(--textLight);
-      margin-right: 1rem;
-    }
-
-  </style>
-
-</html>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

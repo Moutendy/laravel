@@ -64,14 +64,14 @@
                     @if (Route::has('login'))
                     @auth
                     <h1 class="navbar-brand">
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a></h1>
+                        <x-responsive-nav-link href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</x-responsive-nav-link></h1>
                     @else
                     <h1 class="navbar-brand">
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><h5>Log in</h5></a></h1>
+                        <x-responsive-nav-link href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><h5>Log in</h5></x-responsive-nav-link></h1>
 
                         @if (Route::has('register'))
                         <h1 class="navbar-brand">
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><h5>Register</h5></a></h1>
+                            <x-responsive-nav-link href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><h5>Register</h5></x-responsive-nav-link></h1>
                         @endif
                     @endauth
             @endif

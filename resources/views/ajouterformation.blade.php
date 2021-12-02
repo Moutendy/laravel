@@ -35,15 +35,16 @@
      
   <?php use App\Models\FormationModel;
   
- 
+  $files = Storage::files('storage');
 $formationaffiche = FormationModel::all();
+
 $count = count($formationaffiche);
 foreach($formationaffiche as $formations) {
   
   echo  "<tr><td>".$formations->code."</td>";
  echo  "<td>".$formations->code."</td>";
  echo  "<td>".$formations->description."</td>";
- echo  "<td>".$formations->lien."</td>
+ echo  "<td> <img src=/storage/".$formations->lien."></td>
  </tr>";
  
 }
@@ -54,7 +55,7 @@ foreach($formationaffiche as $formations) {
             </div>
       
             <div class="column right has-text-centered">
-                <img src="image/im1.png">
+                <img src="/storage/teste.jpg">
               <h1 class="title is-4">Formation</h1>
               <p class="description">nouvelle Formation</p>
               <form form method="post" action="/envoiformation" enctype="multipart/form-data">
