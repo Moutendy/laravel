@@ -54,16 +54,17 @@
 					<div class="column is-one-third has-text-left">
                     <form method="post" action="/envoitemoignage">
                     {{ csrf_field() }}
+					
 						<div class="field">
-							<label class="label">Name</label>
+							<label class="label">Video</label>
 							<div class="control">
-								<input class="input is-medium" type="text" name="code">
+								<input class="input is-medium" type="file"  name="video">
 							</div>
 						</div>
 						<div class="field">
-							<label class="label">Email</label>
+							<label class="label">Image</label>
 							<div class="control">
-								<input class="input is-medium" type="text"  name="lien">
+								<input class="input is-medium" type="file"  name="image">
 							</div>
 						</div>
 						<div class="field">

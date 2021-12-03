@@ -13,61 +13,67 @@
   </head>
 
   <body>
-    <section class="container">
-      <div class="columns is-multiline">
-        <div class="column is-8 is-offset-2 register">
-        <div class="columns">
-            <div class="column left">
-              <h2 class="subtitle colored is-10">liste des presentations.</h2>
-              <table class="table table is-striped is-small">
-  <thead>
-    <tr>
-      <th>libelle</th>
+  
+            <section class="container">   
+          
+            <div class="column right has-text-centered">
+            <h1 class="title is-4">Formation</h1>
+            <table class="table table is-striped is-small" style="width:100%">
+        <thead>
+            <tr>
+            <th>libelle</th>
       <th>code</th>
       <th>description</abbr></th>
-      <th>mage</th>
+      <th>image</th>
       <th>video</th>
       <th>date de debut</th>
       <th>date de fin</th>
       <th>delete</th>
       <th>update</th>
-    </tr>
-  </thead>
-
-  <tfoot>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+         use App\Models\FormationModel;
+  
+ 
+ 
+ 
+  $formationaffiche = FormationModel::paginate(2);
+  
+  $count = count($formationaffiche);
+  foreach($formationaffiche as $formations) {
     
-     
-  <?php use App\Models\FormationModel;
+    echo  "<tr><td>".$formations->code."</td>";
+   echo  "<td>".$formations->libelle."</td>";
+   echo  "<td>".$formations->description."</td>";
+   echo  "<td><a href='/image/$formations->id'>regarder</a></th>";
+   echo  "<td><a href='/video/$formations->id'>regarder</a></td>";
+   echo  "<td>".$formations->datedebut."</td>";
+   echo  "<td>".$formations->datefin."</td>";
+   echo  "<td><a href='/supprimer/$formations->id'>delete</a></td>";
+   echo  "<td><a href='/update/$formations->id'>modifier</a></td>";
   
- 
-$formationaffiche = FormationModel::all();
+   "</tr>";
+   
+  }
+   ?>   
+        
+        </tbody>
+        <tfoot>
+         
 
-$count = count($formationaffiche);
-foreach($formationaffiche as $formations) {
-  
-  echo  "<tr><td>".$formations->code."</td>";
- echo  "<td>".$formations->code."</td>";
- echo  "<td>".$formations->description."</td>";
- echo  "<td><a href='/image/$formations->id'><img src=/storage/".$formations->image."></a></td>";
- echo  "<td><a href='/video/$formations->id'>regarder</a></td>";
- echo  "<td>".$formations->datedebut."</td>";
- echo  "<td>".$formations->datefin."</td>";
- echo  "<td><a href='/supprimer/$formations->id'>delete</a></td>";
- echo  "<td><a href='/update/$formations->id'>modifier</a></td>";
-
- "</tr>";
- 
-}
- ?>
- 
-</tfoot>
-</table>
-            </div>
-            </section>
-            <section class="container">   
-            <div class="column right has-text-centered">
-                <img src="/storage/teste.jpg">
-              <h1 class="title is-4">Formation</h1>
+        </tfoot>
+    </table>
+    <span>
+{{$formationaffiche->links()}}
+</span>
+<style>
+  .w-5{
+    display:none
+  }
+  </style>
+             
               <p class="description">nouvelle Formation</p>
               <form form method="post" action="/envoiformation" enctype="multipart/form-data">
               {{ csrf_field() }}
@@ -110,42 +116,18 @@ foreach($formationaffiche as $formations) {
     
                 <button class="button is-block is-primary is-fullwidth is-small">Submit</button>
                 <br />
-                <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
+          
               </form>
             </div>
           </div>
         </div>
-        <div class="column is-8 is-offset-2">
-          <br>
-          <nav class="level">
-            <div class="level-left">
-              <div class="level-item">
-                <span class="icon">
-                  <i class="fab fa-twitter"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fab fa-facebook"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fab fa-instagram"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span> &emsp;
-                <span class="icon">
-                  <i class="fas fa-envelope"></i>
-                </span>
-              </div>
-            </div>
-            <div class="level-right">
-              <small class="level-item" style="color: var(--textLight)">
-                &copy; Super Cool Website. All Rights Reserved.
-              </small>
-            </div>
+        
+          
           </nav>
         </div>
       </div>
     </section>
+  
   </body>
   <style>
     :root {

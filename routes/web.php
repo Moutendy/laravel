@@ -58,7 +58,7 @@ Route::get('/supprimer/{id}', [FormationController::class, 'supprimer']);
 
 Route::get('/update/{id}', [FormationController::class, 'update']);
 
-Route::post('/updatepost/', [FormationController::class, 'updatepost']);
+Route::post('/updatepost', [FormationController::class, 'updatepost']);
 
 
 //router contact

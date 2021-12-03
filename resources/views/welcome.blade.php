@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Home</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
@@ -32,7 +32,17 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+				background-image: url(image/slider/im1.jpg);
+				
             }
+bg-img-1{
+	        background-image: url(image/slider/im1.jpg);}
+bg-img-2 {
+	background-image: url(image/slider/im2.jpg);
+}
+bg-img-3{
+	background-image: url(image/slider/im3.jpg);
+}
         </style>
     </head>
     <body class="antialiased" id="body">
@@ -85,55 +95,10 @@
             <section id="home-slider">
             <div id="slider" class="sl-slider-wrapper">
 
-				<div class="sl-slider">
 				
-					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-
-						<div class="bg-img bg-img-1"></div>
-
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h3 class="animated fadeInDown btn-border btn-effect welcome-block">برامج الدكتور مصطفى أبوسعد أونلاين الآن
-</h2><br/>
-                        <h4 class="btn-border btn-effect welcome-block ">        <span class="animated fadeInDown ">يمكنك المتابعة عن بعد بمجرد الإشتراك</span></h3>
-                              
-                            </div>
-                        </div>
-						
-					</div>
+				
 					
-					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-					
-						<div class="bg-img bg-img-2"></div>
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h3 class="btn-border btn-effect btn-border btn-effect welcome-block">برامج الدكتور مصطفى أبوسعد أونلاين الآن
-</h2><br/>
-							
-                            <h4 class="btn-border btn-effect welcome-block">  <span class="animated fadeInDown border-radius">يمكنك المتابعة عن بعد بمجرد الإشتراك
-</span></h4>
-                               
-                            </div>
-                        </div>
-						
-					</div>
-					
-					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-						
-						<div class="bg-img bg-img-3"></div>
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h3 class="btn-border btn-effect">برامج الدكتور مصطفى أبوسعد أونلاين الآن
-</h3><br/> 
-                                <h4 class="btn-border btn-effect welcome-block"><span class="animated fadeInDown ">يمكنك المتابعة عن بعد بمجرد الإشتراك
-</span>
-</h4>
-                            </div>
-                        </div>
-
-					</div>
-
-				</div><!-- /sl-slider -->
+		<!-- /sl-slider -->
 
                 <!-- 
                 <nav id="nav-arrows" class="nav-arrows">
@@ -175,7 +140,7 @@
 </h3>
 								<div id="works">
 									<div class="work-item welcome-block">
-									<img src="im1.jpg" class="pull-left" alt="member">
+									<img src="image/im1.jpg" class="pull-left" alt="member">
 										<h3>التواصل المباشر
 </h3>
 										<p>تواصل مباشر عن طريق القسم الخاص بالمشتركين والتفاعل وكتابة التعليقات والاستفسارات
@@ -183,7 +148,7 @@
 .</p>
 									</div>
 									<div class="work-item welcome-block">
-									<img src="img/im2.jpg" class="pull-left" alt="member">
+									<img src="image/im2.jpg" class="pull-left" alt="member">
 										<h3>متاحة لكِ مدى الحياة
 </h3>
 										<p>بمجرد الإشتراك سيكون لك الحق في امتلاك الدورة مدى الحياة و متابعتها بأي وقت وأي مكان
@@ -191,7 +156,7 @@
 <br></p>
 									</div>
 									<div class="work-item welcome-block">
-									<img src="img/im3.jpg" class="pull-left" alt="member">
+									<img src="image/im3.jpg" class="pull-left" alt="member">
 										<h3>متاحة اون لاين
 </h3>
 										<p>تستطيع متابعتها باي وقت وباي مكان يناسبك
@@ -206,7 +171,7 @@
 								<h3>مرحبا بكم في موقعنا
 </h3>								
 						     	 <div class="message-body">
-									<img src="img/im1.png" class="pull-left" alt="member">
+									<img src="image/im1.png" class="pull-left" alt="member">
 						       		<p>يمكنك التسجيل في البرنامج التعليمي الكامل الذي يتضمن 9 برامج تعليمية في حزمة تدريبية واحدة و
 . احصل على خصم 70٪.
 </p>
@@ -291,33 +256,33 @@
 
 						<ul class="project-wrapper wow animated fadeInUp">
 							<li class="portfolio-item">
-								<img src="img/portfolio/im1.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+								<img src="image/portfolio/im1.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 								<figcaption class="mask">
 									<h3>امتلك البرنامج
 </h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="img/portfolio/im1.png"><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="image/portfolio/im1.png"><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="img/portfolio/im2.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="image/portfolio/im2.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>امتلك البرنامج
 </h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street" href="img/slider/im2.png" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Wall street" href="image/slider/im2.png" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="img/portfolio/im3.png" class="img-responsive" alt="إذا كنت تجد صعوبة في التواصل مع طفلك ولا تجد الطريقة لمعرفة احتياجاته ستتمكن من ذلك عبر البرنامج التدريبي  الذي يستعرض لك جميع احتياجات طفلك الذي يريدها مع دكتور مصطفى أبوسعد
+								<img src="image/portfolio/im3.png" class="img-responsive" alt="إذا كنت تجد صعوبة في التواصل مع طفلك ولا تجد الطريقة لمعرفة احتياجاته ستتمكن من ذلك عبر البرنامج التدريبي  الذي يستعرض لك جميع احتياجات طفلك الذي يريدها مع دكتور مصطفى أبوسعد
 
 . ">
 								<figcaption class="mask">
@@ -329,46 +294,46 @@
 								</figcaption>
 								<ul class="external">
 									<li><a class="fancybox" title="امتلك البرنامج
-" data-fancybox-group="works" href="img/portfolio/im3.png"><i class="fa fa-search"></i></a></li>
+" data-fancybox-group="works" href="image/portfolio/im3.png"><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="img/portfolio/im4.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
+								<img src="image/portfolio/im4.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
 								<figcaption class="mask">
 									<h3>امتلك البرنامج
 </h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="img/portfolio/im4.png"><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="image/portfolio/im4.png"><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="img/portfolio/im5.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="image/portfolio/im5.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>امتلك البرنامج
 </h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="img/portfolio/im5.png"><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="image/portfolio/im5.png"><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="img/portfolio/im6.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="image/portfolio/im6.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>امتلك البرنامج
 </h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="img/portfolio/im6.png"><i class="fa fa-search"></i></a></li>
+									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="image/portfolio/im6.png"><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
@@ -392,21 +357,21 @@
 							
 							<div id="testimonial" class=" wow animated fadeInUp">
 								<div class="testimonial-item text-center">
-									<img src="img/profilm1.jpg" alt="Our Clients">
+									<img src="image/profilm1.jpg" alt="Our Clients">
 									<div class="clearfix">
 										<span>Katty Flower</span>
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 									</div>
 								</div>
 								<div class="testimonial-item text-center">
-									<img src="img/profilm1.jpg" alt="Our Clients">
+									<img src="image/profilm1.jpg" alt="Our Clients">
 									<div class="clearfix">
 										<span>Katty Flower</span>
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 									</div>
 								</div>
 								<div class="testimonial-item text-center">
-									<img src="img/profilm1.jpg" alt="Our Clients">
+									<img src="image/profilm1.jpg" alt="Our Clients">
 									<div class="clearfix">
 										<span>Katty Flower</span>
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
@@ -429,7 +394,8 @@
 							<h2>Price</h2>
 							<p>Our price for your company</p>
 						</div>
-						
+					
+							
 						<div class="col-md-4 wow animated fadeInUp">
 							<div class="price-table text-center">
 								<span>Silver</span>
@@ -443,8 +409,7 @@
 									<li><a href="#">sign up</a></li>
 								</ul>
 							</div>
-						</div>
-						
+		</div>
 						<div class="col-md-4 wow animated fadeInUp" data-wow-delay="0.4s">
 							<div class="price-table featured text-center">
 								<span>Gold</span>
