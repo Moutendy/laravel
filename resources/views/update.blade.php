@@ -13,98 +13,47 @@
   </head>
 
   <body>
-    <section class="container">
-      <div class="columns is-multiline">
-        <div class="column is-8 is-offset-2 register">
-        <div class="columns">
-            <div class="column left">
-              <h2 class="subtitle colored is-10">liste des presentations.</h2>
-              <table class="table table is-striped is-small">
-  <thead>
-    <tr>
-      <th>libelle</th>
-      <th>code</th>
-      <th>description</abbr></th>
-      <th>mage</th>
-      <th>video</th>
-      <th>date de debut</th>
-      <th>date de fin</th>
-      <th>delete</th>
-      <th>update</th>
-    </tr>
-  </thead>
-
-  <tfoot>
-    
-     
-  <?php use App\Models\FormationModel;
-  
- 
-$formationaffiche = FormationModel::all();
-
-$count = count($formationaffiche);
-foreach($formationaffiche as $formations) {
-  
-  echo  "<tr><td>".$formations->code."</td>";
- echo  "<td>".$formations->code."</td>";
- echo  "<td>".$formations->description."</td>";
- echo  "<td><a href='/image/$formations->id'><img src=/storage/".$formations->image."></a></td>";
- echo  "<td><a href='/video/$formations->id'>regarder</a></td>";
- echo  "<td>".$formations->datedebut."</td>";
- echo  "<td>".$formations->datefin."</td>";
- echo  "<td><a href='/supprimer/$formations->id'>delete</a></td>";
- echo  "<td><a href='/update/$formations->id'>modifier</a></td>";
-
- "</tr>";
- 
-}
- ?>
- 
-</tfoot>
-</table>
-            </div>
-            </section>
             <section class="container">   
             <div class="column right has-text-centered">
                 <img src="/storage/teste.jpg">
               <h1 class="title is-4">Formation</h1>
               <p class="description">nouvelle Formation</p>
-              <form form method="post" action="/envoiformation" enctype="multipart/form-data">
+              <form form method="post" action="/updatepost" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="code" placeholder="code">
+                    <input class="input is-small" type="text" name="code"  value=<?php echo $formation->code; ?> >
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="libelle" placeholder="libelle">
+                    <input class="input is-small" type="text" name="libelle" placeholder="libelle" value=<?php echo $formation->libelle; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="description" placeholder="description">
+                    <input class="input is-small" type="text" name="description" placeholder="description" value=<?php echo $formation->description; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="image" placeholder="image">
+                    <input class="input is-small" type="file" name="image" placeholder="image" value=<?php echo $formation->image; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="video" placeholder="video">
+                    <input class="input is-small" type="file" name="video" placeholder="video" value=<?php echo $formation->video; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="date" name="datedebut" placeholder="date debut">
+                    <input class="input is-small" type="date" name="datedebut" placeholder="date debut" value=<?php echo $formation->datedebut; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="date" name="datefin" placeholder="date de fin">
+                    <input class="input is-small" type="date" name="datefin" placeholder="date de fin" value=<?php echo $formation->datefin; ?>>
                   </div>
                 </div>
     

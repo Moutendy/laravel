@@ -50,6 +50,16 @@ Route::post('/envoiformation', [FormationController::class, 'envoiformation']);
 
 Route::get('/actualiteformation', [FormationController::class, 'afficherformation']);
 
+Route::get('/image/{id}', [FormationController::class, 'image']);
+
+Route::get('/video/{id}', [FormationController::class, 'video']);
+
+Route::get('/supprimer/{id}', [FormationController::class, 'supprimer']);
+
+Route::get('/update/{id}', [FormationController::class, 'update']);
+
+Route::post('/updatepost/', [FormationController::class, 'updatepost']);
+
 
 //router contact
 Route::get('/ajoutercontact', [ContactController::class, 'ajoutercontact']);
