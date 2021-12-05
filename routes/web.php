@@ -44,6 +44,8 @@ Route::get('/actualitepresentation', [TemoingnageController::class, 'afficherpre
 
 
 //router formation
+Route::get('/afficherformation', [FormationController::class, 'afficherformation']);
+
 Route::get('/ajouterformation', [FormationController::class, 'ajouterformation']);
 
 Route::post('/envoiformation', [FormationController::class, 'envoiformation']);
@@ -54,11 +56,22 @@ Route::get('/image/{id}', [FormationController::class, 'image']);
 
 Route::get('/video/{id}', [FormationController::class, 'video']);
 
+Route::get('/imagepresentation/{id}', [PresentationController::class, 'image']);
+
+Route::get('/videopresentation/{id}', [PresentationController::class, 'video']);
+
+Route::get('/supprimerpresentation/{id}', [PresentationController::class, 'supprimer']);
+
+Route::get('/updatepresentation/{id}', [PresentationController::class, 'updatepresentation']);
+
+
 Route::get('/supprimer/{id}', [FormationController::class, 'supprimer']);
 
 Route::get('/update/{id}', [FormationController::class, 'update']);
 
 Route::post('/updatepost', [FormationController::class, 'updatepost']);
+
+Route::post('/updatepostpresentation', [PresentationController::class, 'updatepost']);
 
 
 //router contact

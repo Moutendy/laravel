@@ -13,109 +13,79 @@
   </head>
 
   <body>
-  
             <section class="container">   
-          
             <div class="column right has-text-centered">
-            <h1 class="title is-4">Formation</h1>
-            <table class="table table is-striped is-small" style="width:100%">
-        <thead>
-            <tr>
-            <th>libelle</th>
-      <th>code</th>
-      <th>description</abbr></th>
-      <th>image</th>
-      <th>video</th>
-      <th>delete</th>
-      <th>update</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php 
-         use App\Models\PresentationModel;
-  
- 
- 
- 
-  $formationaffiche = PresentationModel::paginate(2);
-  
-  $count = count($formationaffiche);
-  foreach($formationaffiche as $formations) {
-    
-    echo  "<tr><td>".$formations->code."</td>";
-   echo  "<td>".$formations->libelle."</td>";
-   echo  "<td>".$formations->description."</td>";
-   echo  "<td><a href='/image/$formations->id'>regarder</a></th>";
-   echo  "<td><a href='/video/$formations->id'>regarder</a></td>";
- 
-   echo  "<td><a href='/supprimerpresentation/$formations->id'>delete</a></td>";
-   echo  "<td><a href='/updatepresentation/$formations->id'>modifier</a></td>";
-  
-   "</tr>";
-   
-  }
-   ?>   
-        
-        </tbody>
-        <tfoot>
-         
-
-        </tfoot>
-    </table>
-    <span>
-{{$formationaffiche->links()}}
-</span>
-<style>
-  .w-5{
-    display:none
-  }
-  </style>
-             
-              <p class="description">nouvelle Presentation</p>
-              <form form method="post" action="/envoiformation" enctype="multipart/form-data">
+                <img src="/storage/teste.jpg">
+              <h1 class="title is-4">Formation</h1>
+              <p class="description">nouvelle Formation</p>
+              <form form method="post" action="/updatepostpresentation" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="code" placeholder="code">
+                    <input class="input is-small" type="text" name="code"  value=<?php echo $formation->code; ?> >
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="libelle" placeholder="libelle">
+                    <input class="input is-small" type="text" name="libelle" placeholder="libelle" value=<?php echo $formation->libelle; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="description" placeholder="description">
+                    <input class="input is-small" type="text" name="description" placeholder="description" value=<?php echo $formation->description; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="image" placeholder="image">
+                    <input class="input is-small" type="file" name="image" placeholder="image" value=<?php echo $formation->image; ?>>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="video" placeholder="video">
+                    <input class="input is-small" type="file" name="video" placeholder="video" value=<?php echo $formation->video; ?>>
                   </div>
                 </div>
-               
+                
     
                 <button class="button is-block is-primary is-fullwidth is-small">Submit</button>
                 <br />
-          
+                <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
               </form>
             </div>
           </div>
         </div>
-        
-          
+        <div class="column is-8 is-offset-2">
+          <br>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="icon">
+                  <i class="fab fa-twitter"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fab fa-facebook"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fab fa-instagram"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="level-right">
+              <small class="level-item" style="color: var(--textLight)">
+                &copy; Super Cool Website. All Rights Reserved.
+              </small>
+            </div>
           </nav>
         </div>
       </div>
     </section>
-  
   </body>
   <style>
     :root {
