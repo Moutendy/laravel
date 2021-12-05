@@ -13,18 +13,26 @@ class PresentationController extends Controller
     {
         return view('/presentation');
     }
+
     public function updatepresentation($id)
     {
         $formation= PresentationModel::find($id);
 
         return view('/updatepresentation',compact('formation'));
     }
+
     public function video($id)
     {
         $video = PresentationModel::find($id);
         return view('/video',compact('video'));
     }
     
+    public function image($id)
+    {
+        $image = PresentationModel::find($id);
+
+        return view('/image',compact('image'));
+    }
     public function supprimer($id)
     {
         $supprimer = PresentationModel::find($id);

@@ -15,26 +15,71 @@
   <body>
     <section class="container">
       <div class="columns is-multiline">
+   
         <div class="column is-8 is-offset-2 register">
-          <div class="columns">
-            <div class="column left">
-              <h2 class="title is-3">La liste des livres</h2>
-              <h3 class="subtitle colored is-4">vous pouvz ajouter nos livre en ligne.</h3>
-              <p>
+        <table class="table table is-striped is-small" style="width:100%">
+        <thead>
+            <tr>
+            <th>libelle</th>
+      <th>code</th>
+      <th>description</abbr></th>
+      <th>image</th>
+      <th>livre</th>
+      <th>delete</th>
+      <th>update</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+         use App\Models\LivreAModel;
+  
+ 
+ 
+ 
+  $Livreaffichers = LivreAModel::paginate(2);
+  
+  
+  foreach($Livreaffichers as $livreafficher) {
     
-              </p>
-            </div>
+    echo  "<tr><td>".$livreafficher->code."</td>";
+   echo  "<td>".$livreafficher->description."</td>";
+   echo  "<td>".$livreafficher->libelle."</td>";
+   echo  "<td><a href='/imagelivre/$livreafficher->id'>regarder</a></th>";
+   echo  "<td><a href='/downloadlivre/$livreafficher->video'>download</a></td>";
+   echo  "<td><a href='/supprimerlivre/$livreafficher->id'>delete</a></td>";
+   echo  "<td><a href='/updatelivre/$livreafficher->id'>modifier</a></td>";
+   "</tr>";
+   
+  }
+   ?>   
+        
+        </tbody>
+        <tfoot>
+         
+
+        </tfoot>
+    </table>
+    <span>
+{{$Livreaffichers->links()}}
+</span>
+<style>
+  .w-5{
+    display:none
+  }
+  </style>
+          <div class="columns">
+           
             <div class="column right has-text-centered">
               <h1 class="title is-4">Ajouter un livre</h1>
               <p class="description">Ajouter les information du livre </p>
 
-              <form method="post" action="/livre">
+              <form method="post" action="/ajouterlivrepost" enctype="multipart/form-data">
              
             {{ csrf_field() }}
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="text" name="code" placeholder="code">
+                    <input class="input is-small" type="text" name="code" placeholder="code">
                     @if($errors->has('code'))
                     <p class="subtitle colored is-4">{{$errors->first('code')}}</p>
                     @endif
@@ -43,7 +88,7 @@
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="text" name="libelle" placeholder="libelle">
+                    <input class="input is-small" type="text" name="libelle" placeholder="libelle">
                     @if($errors->has('libelle'))
                     <p class="subtitle colored is-4">{{$errors->first('libelle')}}</p>
                     @endif
@@ -52,7 +97,7 @@
                 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="text" name="description" placeholder="description">
+                    <input class="input is-small" type="text" name="description" placeholder="description">
                     @if($errors->has('description'))
                     <p class="subtitle colored is-4">{{$errors->first('description')}}</p>
                     @endif
@@ -60,13 +105,22 @@
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="text" name="lien" placeholder="lien">
-                    @if($errors->has('lien'))
-                    <p class="subtitle colored is-4">{{$errors->first('lien')}}</p>
+                    <input class="input is-small" type="file" name="image" placeholder="image du livre">
+                    @if($errors->has('description'))
+                    <p class="subtitle colored is-4">{{$errors->first('description')}}</p>
                     @endif
                   </div>
                 </div>
-                <button class="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-small" type="file" name="video" placeholder="description">
+                    @if($errors->has('description'))
+                    <p class="subtitle colored is-4">{{$errors->first('description')}}</p>
+                    @endif
+                  </div>
+                </div>
+                
+                <button class="button is-block is-primary is-fullwidth is-small">Submit</button>
                 <br />
                 <small><em>.</em></small>
               </form>

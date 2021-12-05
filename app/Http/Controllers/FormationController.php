@@ -83,7 +83,7 @@ class FormationController extends Controller
     {
         $supprimer = FormationModel::find($id);
         $supprimer->delete();
-       return back();;
+       return back();
     }
   
     public function image($id)

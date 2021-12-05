@@ -26,12 +26,17 @@
 					<span></span>
 				</span>
 			</div>
-			<div id="navbarMenu" class="navbar-menu">
-				<div class="navbar-end">
-					<h1 class="title is-4"><a class="navbar-item is-active" href="/">Home</a><h1>
-					
-				</div>
-			</div>
+			<div class="navbar-menu">
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+        <div class="navbar-item is-flex-touch">
+            <a class="navbar-item" href="/">
+                <i class="material-icons">person_outline</i>
+            </a>
+        </div>
+    </div>
 		</div>
 	</nav>
 	<!-- END NAV -->    
@@ -41,10 +46,66 @@
 				<div class="columns is-8 is-variable ">
 					<div class="column is-two-thirds has-text-left">
 						<h1 class="title is-1">Temoignage</h1>
-						<p class="is-size-4">Jaouter votre temoingnage ne toutes liberter.<br/></p>
+						<p class="is-size-4">Aller sur mes Reseaux.<br/></p>
 			
 						<div class="social-media">
-                        <h1 class="title is-6">Suivez nous sur :</h1>
+						<table class="table table is-striped is-small" style="width:100%">
+        <thead>
+            <tr>
+      <th>code</th>
+      <th>description</abbr></th>
+      <th>image</th>
+      <th>video</th>
+      <th>delete</th>
+      <th>update</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+         
+  
+ 
+ 
+		 use App\Models\TemoignageModel;
+  
+ 
+ 
+ 
+		 $temoingnage = TemoignageModel::paginate(2);
+  
+  
+ 
+  foreach($temoingnage as $temoingnages) {
+    
+    echo  "<tr><td>".$temoingnages->code."</td>";
+   
+   echo  "<td>".$temoingnages->description."</td>";
+   echo  "<td><a href='/imagetemoingnages/$temoingnages->id'>regarder</a></th>";
+   echo  "<td><a href='/videotemoingnages/$temoingnages->id'>regarder</a></td>";
+ 
+   echo  "<td><a href='/supprimertemoingnages/$temoingnages->id'>delete</a></td>";
+   echo  "<td><a href='/updatetemoingnages/$temoingnages->id'>modifier</a></td>";
+  
+   "</tr>";
+   
+  }
+   ?>   
+        
+        </tbody>
+        <tfoot>
+         
+
+        </tfoot>
+    </table>
+    <span>
+{{$temoingnage->links()}}
+</span>
+<style>
+  .w-5{
+    display:none
+  }
+  </style>
+  </style
 							<a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
 							<a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
 							<a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -52,19 +113,25 @@
 					</div>
                  
 					<div class="column is-one-third has-text-left">
-                    <form method="post" action="/envoitemoignage">
+                    <form method="post" action="/envoitemoignage" enctype="multipart/form-data">
                     {{ csrf_field() }}
 					
+					<div class="field">
+							<label class="label">Code</label>
+							<div class="control">
+								<input class="input is-small" type="text"  name="code">
+							</div>
+						</div>
 						<div class="field">
 							<label class="label">Video</label>
 							<div class="control">
-								<input class="input is-medium" type="file"  name="video">
+								<input class="input is-small" type="file"  name="video">
 							</div>
 						</div>
 						<div class="field">
 							<label class="label">Image</label>
 							<div class="control">
-								<input class="input is-medium" type="file"  name="image">
+								<input class="input is-small" type="file"  name="image">
 							</div>
 						</div>
 						<div class="field">
@@ -74,7 +141,7 @@
 							</div>
 						</div>
 						<div class="control">
-							<button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+							<button type="submit" class="button is-block is-primary is-fullwidth is-small">Send Message</button>
 						</div>
 </form>
 					</div>

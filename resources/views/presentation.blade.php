@@ -45,12 +45,10 @@
     echo  "<tr><td>".$formations->code."</td>";
    echo  "<td>".$formations->libelle."</td>";
    echo  "<td>".$formations->description."</td>";
-   echo  "<td><a href='/image/$formations->id'>regarder</a></th>";
-   echo  "<td><a href='/video/$formations->id'>regarder</a></td>";
- 
+   echo  "<td><a href='/imagepresentation/$formations->id'>regarder</a></th>";
+   echo  "<td><a href='/videopresentation/$formations->id'>regarder</a></td>";
    echo  "<td><a href='/supprimerpresentation/$formations->id'>delete</a></td>";
    echo  "<td><a href='/updatepresentation/$formations->id'>modifier</a></td>";
-  
    "</tr>";
    
   }
@@ -72,7 +70,7 @@
   </style>
              
               <p class="description">nouvelle Presentation</p>
-              <form form method="post" action="/envoiformation" enctype="multipart/form-data">
+              <form form method="post" action="/envoipresentation" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">

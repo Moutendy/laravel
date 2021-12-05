@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\temoingnage;
+use App\Models\TemoignageModel;
 
 class TemoingnageController extends Controller
 {
@@ -20,28 +20,89 @@ class TemoingnageController extends Controller
 
 
         
-        $temoingnages= new temoingnage;
+        $temoingnages= new TemoignageModel;
         
         $temoingnages->code=request('code');
         $temoingnages->description=request('description');
-        $temoingnages->lien=request('image');
-        $temoingnages->lien=request('video');
+        $temoingnages->image=request('image');
+        $temoingnages->video=request('video');
         $temoingnages->save();
-        return redirect('ajoutertemoingage');
+        return back();
         
     }
 
     public function affichermoingage()
     {
-
-
-        
-     
-        $livreaffiche = temoingnage::all();
-        return view('actualitetemoingnag',['livre'=>$livreaffiche]);
-        
-       
-        
+         
+        $temoingnage = TemoignageModel::all();
+        return view('actualitetemoignage',compact('temoingnage'));    
     }
+
+    public function updatetemoingnages($id)
+    {
+        $temoignage= TemoignageModel::find($id);
+
+        return view('/updatetemoingnagespost',compact('temoignage'));
+    }
+
+    public function video($id)
+    {
+        $video = TemoignageModel::find($id);
+        return view('/video',compact('video'));
+    }
+    
+    public function image($id)
+    {
+        $image = TemoignageModel::find($id);
+
+        return view('/image',compact('image'));
+    }
+
+    public function supprimertemoingnage($id)
+    {
+        $supprimer = TemoignageModel::find($id);
+
+        $supprimer->delete();
+
+       return back();
+    }
+
+    public  function updatetemoingnagespost(Request $resultat)
+    {
+       $temoignageModel= new TemoignageModel;
+      
+       
+       $temoignageModel->code=request('code');
+    
+       $temoignageModel->description=request('description');
+  
+      
+
+        //video
+        $filevideo = $resultat->file('video');
+        $namevideo = $filevideo->getClientOriginalName();
+        $extensionvideo = $filevideo->getClientOriginalExtension();
+        $resultat->file('video')->move('storage',$namevideo);
+        $temoignageModel->video=$namevideo;
+
+       //image
+       $fileimage = $resultat->file('image');
+       $name = $fileimage->getClientOriginalName();
+       $extensionimage = $fileimage->getClientOriginalExtension();
+       $resultat->file('image')->move('storage',$name);
+       $temoignageModel->image=$name;
+           
+    
+      
+
+
+      // $formationModels->save();
+      $temoignageModel =TemoignageModel::where('code',request('code'))
+       ->update(['image'=>$temoignageModel->image,'video'=>$temoignageModel->video,
+       'description'=>$temoignageModel->description]);
+    
+       return back();
+   }
+
 
 }

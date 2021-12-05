@@ -15,69 +15,66 @@
   <body>
     <section class="container">
       <div class="columns is-multiline">
- 
-        <div class="column is-8 is-offset-2 register">
-        <table class="table table is-striped is-small">
-  <thead>
-    <tr>
-      <th>Adresse Postal</th>
-      <th>Numero de telephone</th>
-      <th>Adresse Email</th>
-      <th>delete</th>
-      <th>update</th>
-    </tr>
-  </thead>
-  <tfoot> 
-    <?php
-  use App\Models\ContactModel;
-  
- 
- 
- 
-  $contact = ContactModel::paginate(2);
-  foreach($contact as $contacts) {
-    
-    echo  "<tr><td>".$contacts->tel."</td>";
-   echo  "<td>".$contacts->adressemail."</td>";
-   echo  "<td>".$contacts->adressepostal."</td>";
-  
-   echo  "<td><a href='/supprimer/$contacts->id'>delete</a></td>";
-   echo  "<td><a href='/update/$contacts->id'>modifier</a></td>";
-  
-   "</tr>";
    
-  }
-   ?>   
-<tfoot>
-</table>
-        <div class="columns">
- 
+        <div class="column is-8 is-offset-2 register">
       
+
+          <div class="columns">
+           
             <div class="column right has-text-centered">
-              <h1 class="title is-4">Ajouter un Contact</h1>
-              <p class="description">nouveau Contact</p>
-              <form form method="post" action="/envoicontact">
-              {{ csrf_field() }}
+              <h1 class="title is-4">Modifier  livre</h1>
+              <p class="description">Modifier les information du livre </p>
+
+              <form method="post" action="/updatelivrepost" enctype="multipart/form-data">
+             
+            {{ csrf_field() }}
+
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="adressepostal" placeholder="Adresse Postal">
+                    <input class="input is-small" type="text" name="code" value="{{$livres->code}}">
+                    @if($errors->has('code'))
+                    <p class="subtitle colored is-4">{{$errors->first('code')}}</p>
+                    @endif
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="tel" name="tel" placeholder="Numero de Télephone">
+                    <input class="input is-small" type="text" name="libelle" value="{{$livres->libelle}}">
+                    @if($errors->has('libelle'))
+                    <p class="subtitle colored is-4">{{$errors->first('libelle')}}</p>
+                    @endif
+                  </div>
+                </div>
+                
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-small" type="text" name="description" value="{{$livres->description}}">
+                    @if($errors->has('description'))
+                    <p class="subtitle colored is-4">{{$errors->first('description')}}</p>
+                    @endif
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="email" name="adressemail" placeholder="Adresse Email">
+                    <input class="input is-small" type="file" name="image" value="{{$livres->image}}">
+                    @if($errors->has('description'))
+                    <p class="subtitle colored is-4">{{$errors->first('description')}}</p>
+                    @endif
                   </div>
                 </div>
-               
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-small" type="file" name="video" value="{{$livres->video}}">
+                    @if($errors->has('description'))
+                    <p class="subtitle colored is-4">{{$errors->first('description')}}</p>
+                    @endif
+                  </div>
+                </div>
+                
                 <button class="button is-block is-primary is-fullwidth is-small">Submit</button>
                 <br />
-                <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
+                <small><em>.</em></small>
               </form>
             </div>
           </div>
