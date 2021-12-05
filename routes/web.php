@@ -6,6 +6,8 @@ use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LivreController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,26 +37,18 @@ Route::post('/envoitemoignage', [TemoingnageController::class, 'envoitemoignage'
 
 Route::get('/actualitetemoingnage', [TemoingnageController::class, 'affichermoingage']);
 
+
+Route::get('/imagetemoingnages/{id}', [TemoingnageController::class, 'imagetemoingnages']);
+Route::get('/videotemoingnages/{id}', [TemoingnageController::class, 'videotemoingnages']);
+Route::get('/supprimertemoingnages/{id}', [TemoingnageController::class, 'supprimertemoingnage']);
+
+Route::get('/updatetemoingnages/{id}', [TemoingnageController::class, 'updatetemoingnages']);
+
+Route::post('/updatetemoingnagespost', [TemoingnageController::class, 'updatetemoingnagespost']);
 //router presentation
 Route::get('/ajouterpresentation', [PresentationController::class, 'ajouterpresentation']);
 
 Route::post('/envoipresentation', [PresentationController::class, 'envoipresentation']);
-
-Route::get('/actualitepresentation', [TemoingnageController::class, 'afficherpresentation']);
-
-
-//router formation
-Route::get('/afficherformation', [FormationController::class, 'afficherformation']);
-
-Route::get('/ajouterformation', [FormationController::class, 'ajouterformation']);
-
-Route::post('/envoiformation', [FormationController::class, 'envoiformation']);
-
-Route::get('/actualiteformation', [FormationController::class, 'afficherformation']);
-
-Route::get('/image/{id}', [FormationController::class, 'image']);
-
-Route::get('/video/{id}', [FormationController::class, 'video']);
 
 Route::get('/imagepresentation/{id}', [PresentationController::class, 'image']);
 
@@ -64,6 +58,17 @@ Route::get('/supprimerpresentation/{id}', [PresentationController::class, 'suppr
 
 Route::get('/updatepresentation/{id}', [PresentationController::class, 'updatepresentation']);
 
+
+//router formation
+Route::get('/afficherformation', [FormationController::class, 'afficherformation']);
+
+Route::get('/ajouterformation', [FormationController::class, 'ajouterformation']);
+
+Route::post('/envoiformation', [FormationController::class, 'envoiformation']);
+
+Route::get('/image/{id}', [FormationController::class, 'image']);
+
+Route::get('/video/{id}', [FormationController::class, 'video']);
 
 Route::get('/supprimer/{id}', [FormationController::class, 'supprimer']);
 
@@ -79,51 +84,32 @@ Route::get('/ajoutercontact', [ContactController::class, 'ajoutercontact']);
 
 Route::post('/envoicontact', [ContactController::class, 'envoicontact']);
 
-Route::get('/actualitecontact', [ContactController::class, 'affichercontact']);
+Route::get('/updatecontact', [ContactController::class, 'updatecontact']);
+
+Route::get('/deletecontact', [ContactController::class, 'deletecontact']);
+
 
 //router aut admin
 Route::get('/authadmin', [AdminController::class, 'ajouteradmin']);
 
 
+//route livre
+Route::get('/livre',  [ LivreController::class, 'ajouterlivre']);
 
-Route::post('/livre', function () {
+Route::get('/imagelivre/{id}',  [ LivreController::class, 'image']);
 
-    request()->validate([
-        'code' => ['required'],
-        'description' => ['required'],
-        'libelle' => ['required'],
-        'lien' => ['required'],
-    ]);
-    $livre = new App\Models\livre;
-
-    $livre->code=request('code');
-    $livre->description=request('description');
-    $livre->libelle=request('libelle');
-    $livre->lien=request('lien');
-    $livre->save();
-
-    return "nous avons reçu votre code ".request('code')." et votre ".request('description'). " libelle ".request('libelle');
-});
-
-Route::get('/livre', function () {
-    $livreaffiche = App\Models\livre::all(); 
-    return view('livre',['livre'=>$livreaffiche]);
-}); 
+Route::get('/supprimerlivre/{id}',  [ LivreController::class, 'supprimerlivre']);
 
 
-Route::get('/livreaffiche', function () {
-    
-    $livreaffiche = App\Models\livre::all();  
-    return view('livreaffiche',['livre'=>$livreaffiche]);
-}); 
+Route::get('/updatelivre/{id}',  [ LivreController::class, 'updatelivre']);
 
-Route::get('/livreaffiche/{id}', function ($id) {
-    
-    $id = App\Models\livre::find($id);  
-     $id->delete();
-     
-    return view('livreaffiche',['livre'=>$id]);
-});
+Route::post('/updatelivrepost/',  [ LivreController::class, 'updatelivrepost']);
+
+Route::get('/downloadlivre/{livre}',  [ LivreController::class, 'downloadlivre']);
+
+Route::post('/downloadlivre',  [ LivreController::class, 'ajouterlivrepost']);
+ 
+
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', function () {
