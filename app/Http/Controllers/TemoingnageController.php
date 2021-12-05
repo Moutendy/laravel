@@ -24,7 +24,8 @@ class TemoingnageController extends Controller
         
         $temoingnages->code=request('code');
         $temoingnages->description=request('description');
-        $temoingnages->lien=request('lien');
+        $temoingnages->lien=request('image');
+        $temoingnages->lien=request('video');
         $temoingnages->save();
         return redirect('ajoutertemoingage');
         

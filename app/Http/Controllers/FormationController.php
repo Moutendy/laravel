@@ -93,6 +93,13 @@ class FormationController extends Controller
         return view('/image',compact('image'));
     }
 
+    public function afficherformation()
+    {
+        $afficherformation = FormationModel::all();
+
+        return view('/afficherformation',compact('afficherformation'));
+    }
+
     public  function envoiformation(Request $resultat)
     {
        $formationModels= new FormationModel;
