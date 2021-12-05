@@ -18,7 +18,8 @@ class CreatePresentationModelsTable extends Migration
             $table->string('code');
             $table->string('libelle');
             $table->string('description');
-            $table->string('lien');
+            $table->string('image');
+            $table->string('video');
             $table->timestamps();
         });
     }
