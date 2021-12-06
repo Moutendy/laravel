@@ -41,6 +41,12 @@ class FormationController extends Controller
        $formationModels->datedebut=request('datedebut');
        $formationModels->datefin=request('datefin');
 
+       $date1 = Carbon::parse($formationModels->datedebut);
+       $date2 = Carbon::parse($formationModels->datefin);
+      
+ 
+       $result = $date2->gt($date1);
+
         //video
         $filevideo = $resultat->file('video');
         $namevideo = $filevideo->getClientOriginalName();
@@ -59,12 +65,18 @@ class FormationController extends Controller
       
 
 
-      // $formationModels->save();
+      
+
+       if($result)
+               {
+        
        $formationModels = FormationModel::where('code',request('code'))
        ->update(['image'=>$formationModels->image,'video'=>$formationModels->video,
        'description'=>$formationModels->description,'libelle'=>$formationModels->libelle,'datedebut'=>$formationModels->datedebut,'datefin'=>$formationModels->datefin]);
-    
-       return redirect('/ajouterformation');
+        return redirect('/ajouterformation');
+               }
+               
+      return back();
    }
 
 
@@ -118,8 +130,12 @@ class FormationController extends Controller
        $formationModels->libelle=request('libelle');
        $formationModels->datedebut=request('datedebut');
        $formationModels->datefin=request('datefin');
-   
-
+       $date1 = Carbon::parse($formationModels->datedebut);
+       $date2 = Carbon::parse($formationModels->datefin);
+      
+ 
+       $result = $date2->gt($date1);
+    
        
 
         //video
@@ -138,11 +154,15 @@ class FormationController extends Controller
            
 
 
-
-       $formationModels->save();
+               if($result)
+               {
+                $formationModels->save();
+                return back();
+               }
        
-
-       return back();
+       $date="les dates ne sont pas bien choisi";
+     
+       return view('/ajouterformation',compact('date'));
    }
 
    

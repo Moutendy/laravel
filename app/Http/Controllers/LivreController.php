@@ -69,9 +69,10 @@ class LivreController extends Controller
         return view('/image',compact('image'));
     }
  
-    public function downloadlivre(Request $resultat,$file)
-    {
-     return response()->download('storage/'.$file);
+    public function downloadlivre($id)
+    {   
+        $video = LivreAModel::find($id);
+     return view('/video',compact('video'));
     }
 
       

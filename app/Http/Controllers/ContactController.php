@@ -15,6 +15,20 @@ class ContactController extends Controller
         return view('ajoutercontact');
     }
 
+    public function updatecontact($id)
+    {
+       
+        $contactModels = ContactModel::find($id);
+        return view('updatecontact',compact('contactModels'));
+    }
+    public function deletecontact($id)
+    {
+       
+        $supprimer = ContactModel::find($id);
+        $supprimer->delete();
+        return view('ajoutercontact');
+    }
+
 
     public  function envoicontact(Request $resultat)
     {
@@ -25,33 +39,29 @@ class ContactController extends Controller
        $contactModels->adressepostal=request('adressepostal');
        $contactModels->save();
        $contact = ContactModel::all();
+
        return view('ajoutercontact',compact('contact'));
    }
 
 
-   public  function updatelivrepost(Request $resultat)
+   public  function updatecontactpost(Request $resultat)
    {
-      $livreAModel= new LivreAModel;
-      $this->validate($resultat, [
-       'video' => 'required|mimes:pdf',
-       ]);
-       $this->validate($resultat, [
-           'image' => 'required|mimes:jpg,png,jpeg',
-           ]);
+      $contact= new ContactModel;
+      
       request()->validate([
-       'code' => ['required'],
-       'description' => ['required'],
-       'libelle' => ['required'],
+       'adressemail' => ['required'],
+       'tel' => ['required'],
+       'adressepostal' => ['required'],
      
    ]);
-      $livreAModel->code=request('code');
+   $contact->adressemail=request('adressemail');
      
-      $livreAModel->description=request('description');
-      $livreAModel->libelle=request('libelle');
+   $contact->tel=request('tel');
+   $contact->adressepostal=request('adressepostal');
 
-      $livreAModel = LivreAModel::where('code',request('code'))->update([
-      'description'=>$livreAModel->description,'libelle'=>$livreAModel->libelle]);
+   $contact = ContactModel::where('adressemail',request('adressemail'))->update([
+      'tel'=> $contact->tel,'adressepostal'=>$contact->adressepostal]);
    
-      return back();
+      return view('ajoutercontact');
   }
 }
