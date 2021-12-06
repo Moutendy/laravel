@@ -7,6 +7,7 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\UserformationController;
 
 
 /*
@@ -39,12 +40,15 @@ Route::get('/actualitetemoingnage', [TemoingnageController::class, 'affichermoin
 
 
 Route::get('/imagetemoingnages/{id}', [TemoingnageController::class, 'imagetemoingnages']);
+
 Route::get('/videotemoingnages/{id}', [TemoingnageController::class, 'videotemoingnages']);
+
 Route::get('/supprimertemoingnages/{id}', [TemoingnageController::class, 'supprimertemoingnage']);
 
 Route::get('/updatetemoingnages/{id}', [TemoingnageController::class, 'updatetemoingnages']);
 
 Route::post('/updatetemoingnagespost', [TemoingnageController::class, 'updatetemoingnagespost']);
+
 //router presentation
 Route::get('/ajouterpresentation', [PresentationController::class, 'ajouterpresentation']);
 
@@ -79,14 +83,23 @@ Route::post('/updatepost', [FormationController::class, 'updatepost']);
 Route::post('/updatepostpresentation', [PresentationController::class, 'updatepost']);
 
 
+
+//router user
+Route::get('/livreformation', [UserformationController::class, 'livre']);
+
+Route::get('/user.formation', [UserformationController ::class, 'formation']);
+
+
 //router contact
 Route::get('/ajoutercontact', [ContactController::class, 'ajoutercontact']);
 
 Route::post('/envoicontact', [ContactController::class, 'envoicontact']);
 
-Route::get('/updatecontact', [ContactController::class, 'updatecontact']);
+Route::get('/updatecontact/{id}', [ContactController::class, 'updatecontact']);
 
-Route::get('/deletecontact', [ContactController::class, 'deletecontact']);
+Route::post('/updatecontactpost', [ContactController::class, 'updatecontactpost']);
+
+Route::get('/deletecontact/{id}', [ContactController::class, 'deletecontact']);
 
 
 //router aut admin
@@ -103,9 +116,9 @@ Route::get('/supprimerlivre/{id}',  [ LivreController::class, 'supprimerlivre'])
 
 Route::get('/updatelivre/{id}',  [ LivreController::class, 'updatelivre']);
 
-Route::post('/updatelivrepost/',  [ LivreController::class, 'updatelivrepost']);
+Route::post('/updatelivrepost',  [ LivreController::class, 'updatelivrepost']);
 
-Route::get('/downloadlivre/{livre}',  [ LivreController::class, 'downloadlivre']);
+Route::get('/lirelivre/{livre}',[ LivreController::class, 'downloadlivre']);
 
 Route::post('/downloadlivre',  [ LivreController::class, 'ajouterlivrepost']);
  

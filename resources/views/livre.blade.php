@@ -45,7 +45,7 @@
    echo  "<td>".$livreafficher->description."</td>";
    echo  "<td>".$livreafficher->libelle."</td>";
    echo  "<td><a href='/imagelivre/$livreafficher->id'>regarder</a></th>";
-   echo  "<td><a href='/downloadlivre/$livreafficher->video'>download</a></td>";
+   echo  "<td><a href='/lirelivre/$livreafficher->id'>lire</a></td>";
    echo  "<td><a href='/supprimerlivre/$livreafficher->id'>delete</a></td>";
    echo  "<td><a href='/updatelivre/$livreafficher->id'>modifier</a></td>";
    "</tr>";
@@ -73,7 +73,7 @@
               <h1 class="title is-4">Ajouter un livre</h1>
               <p class="description">Ajouter les information du livre </p>
 
-              <form method="post" action="/ajouterlivrepost" enctype="multipart/form-data">
+              <form method="post" action="/downloadlivre" enctype="multipart/form-data">
              
             {{ csrf_field() }}
 

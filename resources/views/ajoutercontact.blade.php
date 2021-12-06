@@ -41,8 +41,8 @@
    echo  "<td>".$contacts->adressemail."</td>";
    echo  "<td>".$contacts->adressepostal."</td>";
   
-   echo  "<td><a href='/supprimer/$contacts->id'>delete</a></td>";
-   echo  "<td><a href='/update/$contacts->id'>modifier</a></td>";
+   echo  "<td><a href='/deletecontact/$contacts->id'>delete</a></td>";
+   echo  "<td><a href='/updatecontact/$contacts->id'>modifier</a></td>";
   
    "</tr>";
    
