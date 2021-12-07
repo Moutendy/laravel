@@ -105,6 +105,7 @@ Route::get('/deletecontact/{id}', [ContactController::class, 'deletecontact']);
 //router aut admin
 Route::get('/authadmin', [AdminController::class, 'ajouteradmin']);
 
+Route::get('/homehadmin', [AdminController::class, 'homeadmin']);
 
 //route livre
 Route::get('/livre',  [ LivreController::class, 'ajouterlivre']);

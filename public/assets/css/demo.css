@@ -323,6 +323,8 @@
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center center;
+    background-color: rgb(145, 105, 105);
+    background-image: url('assets/img/cover_4.jpg');
 }
 .blur{
   opacity:0;

@@ -51,9 +51,11 @@
                 <li class="dropdown">
                       <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="/livreformation">Livre</a></li>
-                        <li><a href="/formationuser">Formations</a></li>
-                     
+                        <li><a href="/livre">Livres</a></li>
+                        <li><a href="/ajouterformation">Formations</a></li>
+                        <li><a href="/ajoutercontact">Contacts</a></li>
+                        <li><a href="/ajouterpresentation">Presentation</a></li>
+                        <li><a href="/ajoutertemoignage">Temoignages</a></li>
                         <li class="divider"></li>
                         <li><a href="/">Home</a></li>
                       </ul>
@@ -73,41 +75,7 @@
           </div><!-- /.container-fluid -->
         </nav>
      <div class="blurred-container">
-     <div id="carousel">
-    <!--    
-            IMPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"     
-            
-    -->
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
-    
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="images/hero_1.jpg" alt="Awesome Image">
-        </div>
-        <div class="item">
-          <img src="images/hero_2.jpg" alt="Awesome Image">
-        </div>
-        <div class="item">
-          <img src="imagedown/profilm1.jpg" alt="Awesome Image">
-        </div>
-      </div>
-    
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-        <span class="fa fa-angle-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-        <span class="fa fa-angle-right"></span>
-      </a>
-    </div>
-</div> <!-- end carousel -->
+            <div class="img-src" style=""></div>
         </div>
     </div><!--  end navbar -->
 
