@@ -87,7 +87,7 @@ Route::post('/updatepostpresentation', [PresentationController::class, 'updatepo
 //router user
 Route::get('/livreformation', [UserformationController::class, 'livre']);
 
-Route::get('/user.formation', [UserformationController ::class, 'formation']);
+Route::get('/formationuser', [UserformationController ::class, 'formation']);
 
 
 //router contact

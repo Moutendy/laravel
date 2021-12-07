@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#gsdk">Bienvenu</a>
+              <a class="navbar-brand" href="">Bienvenu</a>
             </div>
         
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,11 +51,11 @@
                 <li class="dropdown">
                       <a href="#gsdk" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#gsdk">Livre</a></li>
-                        <li><a href="#gsdk">Formations</a></li>
-                        <li><a href="#gsdk">Temoignages </a></li>
+                        <li><a href="/livreformation">Livre</a></li>
+                        <li><a href="/formationuser">Formations</a></li>
+                     
                         <li class="divider"></li>
-                        <li><a href="/">Deconnexion</a></li>
+                        <li><a href="/">Home</a></li>
                       </ul>
                 </li>
                 <li>
