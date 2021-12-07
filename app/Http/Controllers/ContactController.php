@@ -21,6 +21,8 @@ class ContactController extends Controller
         $contactModels = ContactModel::find($id);
         return view('updatecontact',compact('contactModels'));
     }
+
+   
     public function deletecontact($id)
     {
        

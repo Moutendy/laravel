@@ -100,19 +100,19 @@
               <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
             </thead>
             <tbody>
-           
+            @foreach ($formation as $formations)
              
               <tr>
-              @foreach ($formation as $formations)
+             
              
                 <td>{{$formations->libelle}}</td>
                 <td>{{$formations->description}}</td>
                 <td><a href='/image/{{$formations->id}}'>voir</a></td>
                 <td><a href='/video/{{$formations->id}}'>voir</a></td>
                 <td>{{$formations->id}}</td>
-                @endforeach
+               
               </tr>
-             
+              @endforeach
             </tbody>
           </table>
         </div>

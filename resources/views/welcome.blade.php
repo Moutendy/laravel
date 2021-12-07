@@ -258,20 +258,42 @@
                     </small>
                 </h1>
             </div>
+           <?php
+use App\Models\ContactModel;
+
+
+          ?> 
             <div class="col-md-6 col-md-offset-3 col-md-12 text-center">
                 <h1 class="hello text-center">
-                   <a href="http://gsdk.creative-tim.com">Get Shit Done Kit <span class="label label-warning"> Pro</span></a>
+                   <a href="#">Contact<span class="label label-warning">Pro</span></a>
                    <small>
-                    <ul class="list-unstyled">
-                        <li>50+ new elements</li>
-                        <li>LESS and SASS files</li>
-                        <li>PSD for designers</li>
-                        <li>New Font Icons </li>
+                   <ul class="list-unstyled">
+                   <?php
+
+  
+ 
+ 
+ 
+  $contact = ContactModel::paginate(2);
+  foreach($contact as $contacts) {
+    echo " <li>Tel</li>";
+    echo  "<li>".$contacts->tel."<li>";
+    echo " <li>Email</li>";
+   echo  "<td>".$contacts->adressemail."</li>";
+   echo " <li>Adresse Postal</li>";
+   echo  "<li>".$contacts->adressepostal."</li>";
+  
+
+  
+ 
+   
+  }
+   ?>
                     </ul>
                     </small>
                 </h1>
                  <div class="actions">
-                     <a class="btn btn-lg btn-warning btn-fill" href="http://gsdk.creative-tim.com/?ref=get-shit-done">Live Preview Kit</a>
+                     <a class="btn btn-lg btn-warning btn-fill" href="http://gsdk.creative-tim.com/?ref=get-shit-done">Suivez Nous</a>
                 </div>
             </div>
         </div>

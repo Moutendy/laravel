@@ -45,13 +45,13 @@ class TemoingnageController extends Controller
         return view('/updatetemoingnagespost',compact('temoignage'));
     }
 
-    public function video($id)
+    public function videotemoingnages($id)
     {
         $video = TemoignageModel::find($id);
         return view('/video',compact('video'));
     }
     
-    public function image($id)
+    public function imagetemoingnages($id)
     {
         $image = TemoignageModel::find($id);
 
@@ -66,6 +66,7 @@ class TemoingnageController extends Controller
 
        return back();
     }
+   
 
     public  function updatetemoingnagespost(Request $resultat)
     {
@@ -101,7 +102,7 @@ class TemoingnageController extends Controller
        ->update(['image'=>$temoignageModel->image,'video'=>$temoignageModel->video,
        'description'=>$temoignageModel->description]);
     
-       return back();
+       return view('temoignage')->with("modifier!!");
    }
 
 

@@ -102,6 +102,7 @@ Route::post('/updatecontactpost', [ContactController::class, 'updatecontactpost'
 Route::get('/deletecontact/{id}', [ContactController::class, 'deletecontact']);
 
 
+
 //router aut admin
 Route::get('/authadmin', [AdminController::class, 'ajouteradmin']);
 

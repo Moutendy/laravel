@@ -89,13 +89,13 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img src="images/hero_1.jpg" alt="Awesome Image">
+          <img src="imagedown/i1.jpg" alt="Awesome Image">
         </div>
         <div class="item">
-          <img src="images/hero_2.jpg" alt="Awesome Image">
+          <img src="imagedown/im.jpg" alt="Awesome Image">
         </div>
         <div class="item">
-          <img src="imagedown/profilm1.jpg" alt="Awesome Image">
+          <img src="imagedown/im2.jpg" alt="Awesome Image">
         </div>
       </div>
     
