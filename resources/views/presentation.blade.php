@@ -5,11 +5,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register - Free Bulma template</title>
+    <title>Presentation</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="css/assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+  <link href="css/assets/css/demo.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+
+
+
+  <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="js/assets/js/demo/gsdk-switch.js"></script>
+  <script src="js/assets/js/demo/jquery.sharrre.js"></script>
+  <script src="js/assets/js/demo/demo.js"></script>
   </head>
 
   <body>
@@ -17,8 +36,8 @@
             <section class="container">   
           
             <div class="column right has-text-centered">
-            <h1 class="title is-4">Formation</h1>
-            <table class="table table is-striped is-small" style="width:100%">
+            <h1 class="title is-4">Presentation</h1>
+            <table id="fresh-table" class="table">
         <thead>
             <tr>
             <th>libelle</th>
@@ -74,33 +93,33 @@
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="code" placeholder="code">
+                    <input class="input is-medium" type="text" name="code" placeholder="code">
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="libelle" placeholder="libelle">
+                    <input class="input is-medium" type="text" name="libelle" placeholder="libelle">
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="description" placeholder="description">
+                    <input class="input is-medium" type="text" name="description" placeholder="description">
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="image" placeholder="image">
+                    <input class="input is-medium" type="file" name="image" placeholder="image">
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="video" placeholder="video">
+                    <input class="input is-medium" type="file" name="video" placeholder="video">
                   </div>
                 </div>
                
     
-                <button class="button is-block is-primary is-fullwidth is-small">Submit</button>
+                <button class="button is-block is-primary is-fullwidth is-medium">Submit</button>
                 <br />
           
               </form>
@@ -182,5 +201,122 @@
       margin-right: 1rem;
     }
   </style>
+ <script type="text/javascript">
+    var $table = $('#fresh-table')
+    var $alertBtn = $('#alertBtn')
 
+    window.operateEvents = {
+      'click .like': function (e, value, row, index) {
+     
+       
+      },
+      'click .edit': function (e, value, row, index) {
+     
+     
+      },
+      'click .remove': function (e, value, row, index) {
+        $table.bootstrapTable('remove', {
+          field: 'id',
+          values: [row.id]
+        })
+      }
+    }
+
+    function operateFormatter(value, row, index) {
+      return [
+        '<a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">',
+          '<i class="fa fa-heart"></i>',
+        '</a>',
+        '<a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">',
+          '<i class="fa fa-edit"></i>',
+        '</a>',
+        '<a rel="tooltip" title="Remove" class="table-action remove" href="javascript:void(0)" title="Remove">',
+          '<i class="fa fa-remove"></i>',
+        '</a>'
+      ].join('')
+    }
+
+    $(function () {
+      $table.bootstrapTable({
+        classes: 'table table-hover table-striped',
+        toolbar: '.toolbar',
+
+        search: true,
+        showRefresh: true,
+        showToggle: true,
+        showColumns: true,
+        pagination: true,
+        striped: true,
+        sortable: true,
+        pageSize: 8,
+        pageList: [8, 10, 25, 50, 100],
+
+        formatShowingRows: function (pageFrom, pageTo, totalRows) {
+          return ''
+        },
+        formatRecordsPerPage: function (pageNumber) {
+          return pageNumber + ' rows visible'
+        }
+      })
+
+      $alertBtn.click(function () {
+        alert('You pressed on Alert')
+      })
+    })
+
+    $('#sharrreTitle').sharrre({
+      share: {
+        twitter: true,
+        facebook: true
+      },
+      template: '',
+      enableHover: false,
+      enableTracking: true,
+      render: function (api, options) {
+        $("#sharrreTitle").html('Thank you for ' + options.total + ' shares!')
+      },
+      enableTracking: true,
+      url: location.href
+    })
+
+    $('#twitter').sharrre({
+      share: {
+        twitter: true
+      },
+      enableHover: false,
+      enableTracking: true,
+      buttons: { twitter: {via: 'CreativeTim'}},
+      click: function (api, options) {
+        api.simulateClick()
+        api.openPopup('twitter')
+      },
+      template: '<i class="fa fa-twitter"></i> {total}',
+      url: location.href
+    })
+
+    $('#facebook').sharrre({
+      share: {
+        facebook: true
+      },
+      enableHover: false,
+      enableTracking: true,
+      click: function (api, options) {
+        api.simulateClick()
+        api.openPopup('facebook')
+      },
+      template: '<i class="fa fa-facebook-square"></i> {total}',
+      url: location.href
+    })
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga')
+
+    ga('create', 'UA-46172202-1', 'auto')
+    ga('send', 'pageview')
+
+  </script>
 </html>
