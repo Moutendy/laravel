@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="navbar-item is-flex-touch">
-            <a class="navbar-item" href="/ajouterformation">
+            <a class="navbar-item" href="/">
                 <i class="material-icons">person_outline</i>
             </a>
         </div>

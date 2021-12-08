@@ -120,6 +120,60 @@
         </div>
 </div>
 @endforeach 
+@else
+    <div class="main" id="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    <div class="container tim-container">
+        <div id="extras">
+            <div class="space"></div>
+            <div class="row">
+
+
+                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                    <div class="text-center">
+
+					<div class="carousel-inner">
+        <div class="item active">
+      <img src="assets/img/carousel_blue.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+        <img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+<img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+      </div>
+	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
+	  </div>
+</div>
+                 
+                <div class="col-md-5 col-sm-12">
+                                <h1 class="text-center">Presentation
+                                
+                                <small class="subtitle">presentation</small></h1>
+                                <hr>
+                                <p>
+                                Aucune presentation</p>
+                               
+
+                </div>
+            </div>
+        </div>
+</div>
+    <!--     end extras -->    
+    </div>
+ 
 @endif   <!--     end extras -->    
     </div>
     <?php  
@@ -147,13 +201,13 @@
 
 					<div class="carousel-inner">
         <div class="item active">
-        <a href='/videotemoingnages/{{$temoignages->id}}'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-        <a href='/videotemoingnages/{{$temoignages->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-        <a href='/videotemoingnages/{{$temoignages->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
       </div>
 	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -181,6 +235,60 @@
     <!--     end extras -->    
     </div>
     @endforeach 
+
+    @else
+    <div class="main" id="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    <div class="container tim-container">
+        <div id="extras">
+            <div class="space"></div>
+            <div class="row">
+
+
+                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                    <div class="text-center">
+
+					<div class="carousel-inner">
+        <div class="item active">
+      <img src="assets/img/carousel_blue.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+        <img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+<img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+      </div>
+	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
+	  </div>
+</div>
+                 
+                <div class="col-md-5 col-sm-12">
+                                <h1 class="text-center">Temoignage
+                                
+                                <small class="subtitle">temoignage</small></h1>
+                                <hr>
+                                <p>
+                                Aucun temoignage</p>
+                               
+
+                </div>
+            </div>
+        </div>
+</div>
+    <!--     end extras -->    
+    </div>
 @endif
     <?php  
     use App\Models\FormationModel;
@@ -208,13 +316,13 @@
 
 					<div class="carousel-inner">
         <div class="item active">
-        <a href='/'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-        <a href='/'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-        <a href='/'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
       </div>
 	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -242,6 +350,59 @@
     <!--     end extras -->    
     </div>
     @endforeach 
+    @else
+    <div class="main" id="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    <div class="container tim-container">
+        <div id="extras">
+            <div class="space"></div>
+            <div class="row">
+
+
+                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                    <div class="text-center">
+
+					<div class="carousel-inner">
+        <div class="item active">
+      <img src="assets/img/carousel_blue.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+        <img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+<img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+      </div>
+	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
+	  </div>
+</div>
+                 
+                <div class="col-md-5 col-sm-12">
+                                <h1 class="text-center">Formation 
+                                
+                                <small class="subtitle">formation</small></h1>
+                                <hr>
+                                <p>
+                                Aucune formation</p>
+                               
+
+                </div>
+            </div>
+        </div>
+</div>
+    <!--     end extras -->    
+    </div>
 @endif 
 <!-- end container -->
 
@@ -267,13 +428,13 @@
 
 					<div class="carousel-inner">
         <div class="item active">
-        <a href='/lirelivre/{{$livres->id}}''><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-        <a href='/lirelivre/{{$livres->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-        <a href='/lirelivre/{{$livres->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        <a href='/register'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
       </div>
 	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -301,6 +462,61 @@
     <!--     end extras -->    
     </div>
     @endforeach 
+    @else
+    <div class="main" id="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    <div class="container tim-container">
+        <div id="extras">
+            <div class="space"></div>
+            <div class="row">
+
+
+                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                    <div class="text-center">
+
+					<div class="carousel-inner">
+        <div class="item active">
+      <img src="assets/img/carousel_blue.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+        <img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+        <div class="item">
+<img src="assets/img/carousel_green.png" alt="Awesome Image">
+        </div>
+      </div>
+	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
+	  </div>
+</div>
+                 
+                <div class="col-md-5 col-sm-12">
+                                <h1 class="text-center">Livres
+                                
+                                <small class="subtitle">livre</small></h1>
+                                <hr>
+                                <p>
+                                Aucun livre</p>
+                               
+
+                </div>
+            </div>
+        </div>
+</div>
+    <!--     end extras -->    
+    </div>
+
+<!-- end container -->
 @endif
 
 <!-- end main -->

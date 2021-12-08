@@ -159,12 +159,12 @@
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="image" placeholder="image">
+                    <input class="input is-small" type="file" name="image" placeholder="image" multiple>
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="video" placeholder="video">
+                    <input class="input is-small" type="file" name="video" placeholder="video" multiple>
                   </div>
                 </div>
                 <div class="field">

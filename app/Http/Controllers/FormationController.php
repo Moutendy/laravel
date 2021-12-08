@@ -84,7 +84,7 @@ class FormationController extends Controller
     {
         return view('/ajouterformation');
     }
-
+     //ajouter video
     public function video($id)
     {
         $video = FormationModel::find($id);
@@ -97,7 +97,7 @@ class FormationController extends Controller
         $supprimer->delete();
        return back();
     }
-  
+    //ajouter image
     public function image($id)
     {
         $image = FormationModel::find($id);
