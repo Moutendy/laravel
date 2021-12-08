@@ -74,32 +74,35 @@
 </head>
 <body>
 	<!-- START NAV -->
-	<nav class="navbar">
-		<div class="container">
-			<div class="navbar-brand">
-				
-				<span class="navbar-burger burger" data-target="navbarMenu">
-					<span></span>
-					<span></span>
-					<span></span>
-				</span>
-			</div>
-			<div class="navbar-menu">
-            <div class="navbar-item">
-                
-            </div>
-        </div>
-        <div class="navbar-item is-flex-touch">
-            <a class="navbar-item" href="/">
-                <i class="material-icons">home</i>
-            </a>
-        </div>
-    </div>
-		</div>
-	</nav>
+
 	<!-- END NAV -->    
 	<section class="hero is-fullheight">
+  <a href="">
+                     <div class="logo-container">
+                        <div class="logo">
+                            <img src="assets/img/new_logo.png">
+                        </div>
+                        <div class="brand">
+                            Creative Tim
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/" class="btn btn-round btn-default">Home</a></li>
+                    
+                    <li><a href="" ></a></li>
+               </ul>
+              
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 		<div class="hero-body">
+      
 			<div class="container has-text-centered">
 				<div class="columns is-8 is-variable ">
 					<div class="column is-two-thirds has-text-left">
@@ -107,6 +110,9 @@
 						<p class="is-size-4">Aller sur mes Reseaux.<br/></p>
 			
 						<div class="social-media">
+            <div class="toolbar">
+         <a href="/" ><button class="btn btn-default">Home</button></a>
+          </div>
 						<table id="fresh-table" class="table">
         <thead>
             <tr>
@@ -129,7 +135,7 @@
  
  
  
-		 $temoingnage = TemoignageModel::paginate(2);
+		 $temoingnage = TemoignageModel::paginate(3);
   
   
  
@@ -140,7 +146,6 @@
    echo  "<td>".$temoingnages->description."</td>";
    echo  "<td><a href='/imagetemoingnages/$temoingnages->id'>regarder</a></th>";
    echo  "<td><a href='/videotemoingnages/$temoingnages->id'>regarder</a></td>";
- 
    echo  "<td><a href='/supprimertemoingnages/$temoingnages->id'>delete</a></td>";
    echo  "<td><a href='/updatetemoingnages/$temoingnages->id'>modifier</a></td>";
   

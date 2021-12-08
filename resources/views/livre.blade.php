@@ -23,13 +23,18 @@
     <script src="js/assets/js/demo/gsdk-switch.js"></script>
   <script src="js/assets/js/demo/jquery.sharrre.js"></script>
   <script src="js/assets/js/demo/demo.js"></script>
+  
   </head>
 
   <body>
+ 
     <section class="container">
       <div class="columns is-multiline">
    
         <div class="column is-8 is-offset-2 register">
+        <div class="toolbar">
+         <a href="/" ><button class="btn btn-default">Home</button></a>
+          </div>
         <table id="fresh-table" class="table">
         <thead>
             <tr>

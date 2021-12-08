@@ -15,7 +15,7 @@ class TemoingnageController extends Controller
         return view('temoignage');
     }
 
-    public function envoitemoignage()
+    public function envoitemoignage(Request $resultat)
     {
 
 
@@ -24,10 +24,24 @@ class TemoingnageController extends Controller
         
         $temoingnages->code=request('code');
         $temoingnages->description=request('description');
-        $temoingnages->image=request('image');
-        $temoingnages->video=request('video');
+      
+         //video
+         $filevideo = $resultat->file('video');
+         $namevideo = $filevideo->getClientOriginalName();
+         $extensionvideo = $filevideo->getClientOriginalExtension();
+         $resultat->file('video')->move('storage',$namevideo);
+         $temoingnages->video=$namevideo;
+ 
+        //image
+        $fileimage = $resultat->file('image');
+        $name = $fileimage->getClientOriginalName();
+        $extensionimage = $fileimage->getClientOriginalExtension();
+        $resultat->file('image')->move('storage',$name);
+        $temoingnages->image=$name;
+            
+     
         $temoingnages->save();
-        return back();
+        return view('temoignage');
         
     }
 
@@ -48,14 +62,14 @@ class TemoingnageController extends Controller
     public function videotemoingnages($id)
     {
         $video = TemoignageModel::find($id);
-        return view('/video',compact('video'));
+        return view('video',compact('video'));
     }
     
     public function imagetemoingnages($id)
     {
         $image = TemoignageModel::find($id);
 
-        return view('/image',compact('image'));
+        return view('image',compact('image'));
     }
 
     public function supprimertemoingnage($id)

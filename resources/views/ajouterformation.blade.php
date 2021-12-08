@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register - Free Bulma template</title>
+    <title>Ajouter Contact</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
@@ -79,6 +79,9 @@
           
             <div class="column right has-text-centered">
             <h1 class="title is-4">Formation</h1>
+            <div class="toolbar">
+         <a href="/" ><button class="btn btn-default">Home</button></a>
+          </div>
             <table id="fresh-table" class="table">
         <thead>
             <tr>

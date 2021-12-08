@@ -37,6 +37,9 @@
           
             <div class="column right has-text-centered">
             <h1 class="title is-4">Presentation</h1>
+            <div class="toolbar">
+         <a href="/" ><button class="btn btn-default">Home</button></a>
+          </div>
             <table id="fresh-table" class="table">
         <thead>
             <tr>
@@ -57,8 +60,7 @@
  
  
   $formationaffiche = PresentationModel::paginate(2);
-  
-  $count = count($formationaffiche);
+ 
   foreach($formationaffiche as $formations) {
     
     echo  "<tr><td>".$formations->code."</td>";

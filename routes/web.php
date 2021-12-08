@@ -8,6 +8,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\UserformationController;
+use App\Models\PresentationModel;
+use App\Models\FormationModel;
+
 
 
 /*
@@ -23,7 +26,16 @@ use App\Http\Controllers\UserformationController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    $presentation= PresentationModel::all();
+    $formation= FormationModel::all();
+
+
+    if($presentation)
+    return view('welcome',compact('presentation'));
+
+    
+    if($formation)
+    return view('welcome',compact('formation'));
 });
 
 Route::get('/dashboard', function () {
@@ -31,6 +43,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+
 //router temoignage
 Route::get('/ajoutertemoignage', [TemoingnageController::class, 'ajoutertemoignage']);
 

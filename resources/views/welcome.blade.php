@@ -19,7 +19,8 @@
     <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
 </head>
-<body>
+
+<body >
 <div id="navbar-full">
     <div class="container">
         <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
@@ -47,14 +48,14 @@
         
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
+              <ul   class="nav navbar-nav navbar-right">
 			  @if (Route::has('login'))
                     @auth
-                    <li><a class="btn btn-round btn-default" href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    <li><a class="btn btn-round btn-default" href="{{ url('/dashboard') }}" style=background-color:black;>Dashboard</a></li>
 					@else
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('login') }}" style=background-color:black;>Login</a></li>
 					@if (Route::has('register'))
-					<li><a href="{{ route('register') }}" class="btn btn-round btn-default">Register</a></li>
+					<li><a href="{{ route('register') }}" class="btn btn-round btn-default" style=background-color:black;>Register</a></li>
 					@endif
                     @endauth
             @endif
@@ -64,65 +65,7 @@
           </div><!-- /.container-fluid -->
         </nav>
     </div><!--  end container-->
-    
-    <div class='blurred-container'>
-        <div class="motto">
-            <div>Bie</div>
-            <div class="border no-right-border">N</div><div class="border">Ve</div>
-            <div>Nu</div>
-        </div>
-        <div class="img-src" style="background-image: url('assets/img/cover_4.jpg')"></div>
-        <div class='img-src blur' style="background-image: url('assets/img/cover_4_blur.jpg')"></div>
-    </div>
-    
-</div>     
-    
-
-
-        
-        <div class="space"></div>
-        <div class="tim-title">
-            <h3>Carousel</h3>
-        </div>
-    </div>
-</div>
-<div id="carousel">
-    <!--    
-            IMPORTANT - This carousel can have a special class for a smooth transition "gsdk-transition". Since javascript cannot be overwritten, if you want to use it, you can use the bootstrap.js or bootstrap.min.js from the GSDKit or you can open your bootstrap.js file, search for "emulateTransitionEnd(600)" and change it with "emulateTransitionEnd(1200)"     
-            
-    -->
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
-    
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="assets/img/carousel_blue.png" alt="Awesome Image">
-        </div>
-        <div class="item">
-          <img src="assets/img/carousel_green.png" alt="Awesome Image">
-        </div>
-        <div class="item">
-          <img src="assets/img/carousel_red.png" alt="Awesome Image">
-        </div>
-      </div>
-    
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-        <span class="fa fa-angle-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-        <span class="fa fa-angle-right"></span>
-      </a>
-    </div>
-</div> <!-- end carousel -->
-
-<div class="main" id="carousel">
+    <div class="main" id="carousel">
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -131,20 +74,6 @@
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       </ol>
     <div class="container tim-container">
-	<?php 
-         use App\Models\FormationModel;
-  
- 
- 
- 
-  $formationaffiche = FormationModel::paginate(2);
-  
-  $count = count($formationaffiche);
-  foreach($formationaffiche as $formations) {
-    
- ?>
-   
-   
         <div id="extras">
             <div class="space"></div>
             <div class="row">
@@ -152,17 +81,21 @@
 
                 <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
                     <div class="text-center">
-
+                      @if($presentation!=null)
+                    @foreach ($presentation as $presentations)
 					<div class="carousel-inner">
         <div class="item active">
+    <a href='/videopresentation/{{$presentations->id}}'><img src='assets/img/carousel_blue.png' alt='Awesome Image'></a>;
+          
+        </div>
         <div class="item">
-	
-	<?php	echo "<a href='/register'><img src='storage/$formations->image' alt='Awesome Image'></a>"; ?> 
+        <a href='/videopresentation/{{$presentations->id}}'> <img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
-    
+        <div class="item">
+        <a href='/videopresentation/{{$presentations->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
-     
       </div>
+     
 	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
         <span class="fa fa-angle-left"></span>
       </a>
@@ -173,20 +106,28 @@
 </div>
                  
                 <div class="col-md-5 col-sm-12">
-                                <h1 class="text-center">Formation
+                                <h1 class="text-center">Presentation
                                 
-                                <small class="subtitle">temoignage</small></h1>
+                                <small class="subtitle">presentation</small></h1>
                                 <hr>
                                 <p>
-								<?php echo  "<td>".$formations->description."</td>";  } ?> </p>
+                                  {{$presentations->description}}
+                                </p>
                                
 
                 </div>
             </div>
         </div>
 </div>
-    <!--     end extras -->    
+@endforeach 
+@endif   <!--     end extras -->    
     </div>
+    <?php  
+    use App\Models\TemoignageModel;
+    
+    $temoignage= TemoignageModel::all();  ?>
+     @if($temoignage!=null)
+    @foreach ($temoignage as $temoignages)
 <div class="main" id="carousel">
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -206,13 +147,13 @@
 
 					<div class="carousel-inner">
         <div class="item active">
-          <img src="assets/img/carousel_blue.png" alt="Awesome Image">
+        <a href='/videotemoingnages/{{$temoignages->id}}'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-          <img src="assets/img/carousel_green.png" alt="Awesome Image">
+        <a href='/videotemoingnages/{{$temoignages->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
         <div class="item">
-		<img src="assets/img/carousel_green.png" alt="Awesome Image">
+        <a href='/videotemoingnages/{{$temoignages->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
         </div>
       </div>
 	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -230,8 +171,7 @@
                                 <small class="subtitle">temoignage</small></h1>
                                 <hr>
                                 <p>
-                                Creative Tim offers Bootstrap based design elements that speed up your development work. From plugins to complex kits, we have everything you need. 
-                                </p>
+                                {{$temoignages->description}}</p>
                                
 
                 </div>
@@ -240,10 +180,128 @@
 </div>
     <!--     end extras -->    
     </div>
-<!-- end container -->
-<div class="space-30"></div>
-</div>
+    @endforeach 
+@endif
+    <?php  
+    use App\Models\FormationModel;
+    use App\Models\LivreAModel;
+    $livre = LivreAModel::all();
+    $formation= FormationModel::all();  ?>
+    @if($formation!=null)
+    @foreach ($formation as $formations)
+    <div class="main" id="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    <div class="container tim-container">
+        <div id="extras">
+            <div class="space"></div>
+            <div class="row">
 
+
+                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                    <div class="text-center">
+
+					<div class="carousel-inner">
+        <div class="item active">
+        <a href='/'><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
+        </div>
+        <div class="item">
+        <a href='/'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        </div>
+        <div class="item">
+        <a href='/'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        </div>
+      </div>
+	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
+	  </div>
+</div>
+                 
+                <div class="col-md-5 col-sm-12">
+                                <h1 class="text-center">Formation
+                                
+                                <small class="subtitle">formation</small></h1>
+                                <hr>
+                                <p>
+                                {{$formations->description}}</p>
+                               
+
+                </div>
+            </div>
+        </div>
+</div>
+    <!--     end extras -->    
+    </div>
+    @endforeach 
+@endif 
+<!-- end container -->
+
+</div>
+@if($livre!=null)
+    @foreach ($livre as $livres)
+    <div class="main" id="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+    <div class="container tim-container">
+        <div id="extras">
+            <div class="space"></div>
+            <div class="row">
+
+
+                <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1">
+                    <div class="text-center">
+
+					<div class="carousel-inner">
+        <div class="item active">
+        <a href='/lirelivre/{{$livres->id}}''><img src="assets/img/carousel_blue.png" alt="Awesome Image"></a>
+        </div>
+        <div class="item">
+        <a href='/lirelivre/{{$livres->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        </div>
+        <div class="item">
+        <a href='/lirelivre/{{$livres->id}}'><img src="assets/img/carousel_green.png" alt="Awesome Image"></a>
+        </div>
+      </div>
+	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="fa fa-angle-right"></span>
+      </a>
+	  </div>
+</div>
+                 
+                <div class="col-md-5 col-sm-12">
+                                <h1 class="text-center">Livres
+                                
+                                <small class="subtitle">livre</small></h1>
+                                <hr>
+                                <p>
+                                {{$livres->description}}</p>
+                               
+
+                </div>
+            </div>
+        </div>
+</div>
+    <!--     end extras -->    
+    </div>
+    @endforeach 
+@endif
 
 <!-- end main -->
 
@@ -254,12 +312,12 @@
             <div class="col-md-12 text-center">
                 <h1>
                     <small>
-                       Don't forget to check our latest release:<a>
+                  
                     </small>
                 </h1>
             </div>
            <?php
-use App\Models\ContactModel;
+
 
 
           ?> 
@@ -270,7 +328,7 @@ use App\Models\ContactModel;
                    <ul class="list-unstyled">
                    <?php
 
-  
+use App\Models\ContactModel;
  
  
  
