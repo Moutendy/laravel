@@ -96,8 +96,7 @@ class PresentationController extends Controller
         'code' => ['required'],
         'description' => ['required'],
         'libelle' => ['required'],
-        'video' => ['required'],
-      
+        'video' => ['required'], 
         'image' => ['required'],
     ]);
       

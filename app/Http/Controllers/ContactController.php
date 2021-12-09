@@ -35,7 +35,14 @@ class ContactController extends Controller
     public  function envoicontact(Request $resultat)
     {
       $contactModels= new ContactModel ;
+       
+      request()->validate([
+        'adressemail' => ['required'],
+        'tel' => ['required'],
+        'adressepostal' => ['required'],
       
+    ]);
+
        $contactModels->adressemail=request('adressemail');
        $contactModels->tel=request('tel');
        $contactModels->adressepostal=request('adressepostal');

@@ -25,6 +25,13 @@ class TemoingnageController extends Controller
         $temoingnages->code=request('code');
         $temoingnages->description=request('description');
       
+        request()->validate([
+            'code' => ['required'],
+            'description' => ['required'],
+            'video' => ['required'],
+            'image' => ['required'],
+        ]);
+        
          //video
          $filevideo = $resultat->file('video');
          $namevideo = $filevideo->getClientOriginalName();
@@ -91,7 +98,12 @@ class TemoingnageController extends Controller
     
        $temoignageModel->description=request('description');
   
-      
+       request()->validate([
+        'code' => ['required'],
+        'description' => ['required'],
+        'video' => ['required'],
+        'image' => ['required'],
+    ]);
 
         //video
         $filevideo = $resultat->file('video');
