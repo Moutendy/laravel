@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\UserformationController;
+use App\Http\Controllers\AuthentificationsController;
+
 use App\Models\PresentationModel;
 use App\Models\FormationModel;
 
@@ -38,14 +40,41 @@ Route::get('/', function () {
     return view('welcome',compact('formation'));
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
 
+ //router user
+Route::middleware(['auth','user_type:user'])->group(function()
+{
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+  //afficher les page des formations 
+Route::get('/livreformation', [UserformationController::class, 'livre']);
+
+Route::get('/formationuser', [UserformationController ::class, 'formation']);
+
+});
 
 
+Route::middleware(['auth'])->group(function()
+{
+  
+
+//regarder les formations
+Route::get('/image/{id}', [FormationController::class, 'image']);
+
+Route::get('/video/{id}', [FormationController::class, 'video']);
+});
+
+
+
+
+
+ //router admin
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+  Route::get('/homehadmin', [AdminController::class, 'homeadmin']);
 //router temoignage
 Route::get('/ajoutertemoignage', [TemoingnageController::class, 'ajoutertemoignage']);
 
@@ -54,9 +83,7 @@ Route::post('/envoitemoignage', [TemoingnageController::class, 'envoitemoignage'
 Route::get('/actualitetemoingnage', [TemoingnageController::class, 'affichermoingage']);
 
 
-Route::get('/imagetemoingnages/{id}', [TemoingnageController::class, 'imagetemoingnages']);
 
-Route::get('/videotemoingnages/{id}', [TemoingnageController::class, 'videotemoingnages']);
 
 Route::get('/supprimertemoingnages/{id}', [TemoingnageController::class, 'supprimertemoingnage']);
 
@@ -69,9 +96,6 @@ Route::get('/ajouterpresentation', [PresentationController::class, 'ajouterprese
 
 Route::post('/envoipresentation', [PresentationController::class, 'envoipresentation']);
 
-Route::get('/imagepresentation/{id}', [PresentationController::class, 'image']);
-
-Route::get('/videopresentation/{id}', [PresentationController::class, 'video']);
 
 Route::get('/supprimerpresentation/{id}', [PresentationController::class, 'supprimer']);
 
@@ -85,9 +109,6 @@ Route::get('/ajouterformation', [FormationController::class, 'ajouterformation']
 
 Route::post('/envoiformation', [FormationController::class, 'envoiformation']);
 
-Route::get('/image/{id}', [FormationController::class, 'image']);
-
-Route::get('/video/{id}', [FormationController::class, 'video']);
 
 Route::get('/supprimer/{id}', [FormationController::class, 'supprimer']);
 
@@ -96,14 +117,6 @@ Route::get('/update/{id}', [FormationController::class, 'update']);
 Route::post('/updatepost', [FormationController::class, 'updatepost']);
 
 Route::post('/updatepostpresentation', [PresentationController::class, 'updatepost']);
-
-
-
-//router user
-Route::get('/livreformation', [UserformationController::class, 'livre']);
-
-Route::get('/formationuser', [UserformationController ::class, 'formation']);
-
 
 //router contact
 Route::get('/ajoutercontact', [ContactController::class, 'ajoutercontact']);
@@ -118,10 +131,9 @@ Route::get('/deletecontact/{id}', [ContactController::class, 'deletecontact']);
 
 
 
-//router aut admin
-Route::get('/authadmin', [AdminController::class, 'ajouteradmin']);
 
-Route::get('/homehadmin', [AdminController::class, 'homeadmin']);
+
+
 
 //route livre
 Route::get('/livre',  [ LivreController::class, 'ajouterlivre']);
@@ -134,15 +146,20 @@ Route::get('/supprimerlivre/{id}',  [ LivreController::class, 'supprimerlivre'])
 Route::get('/updatelivre/{id}',  [ LivreController::class, 'updatelivre']);
 
 Route::post('/updatelivrepost',  [ LivreController::class, 'updatelivrepost']);
-
+//a ajouter coter user
 Route::get('/lirelivre/{livre}',[ LivreController::class, 'downloadlivre']);
 
 Route::post('/downloadlivre',  [ LivreController::class, 'ajouterlivrepost']);
- 
 
 
-Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin', function () {
-      return view('admin.dashboard');
-    })->name('dashboard');
-  });
+    });
+
+    Route::get('/authentification',  [ AuthentificationsController::class, 'authentification']);
+
+    Route::get('/imagepresentation/{id}', [PresentationController::class, 'image']);
+
+    Route::get('/videopresentation/{id}', [PresentationController::class, 'video']);
+
+    Route::get('/imagetemoingnages/{id}', [TemoingnageController::class, 'imagetemoingnages']);
+
+Route::get('/videotemoingnages/{id}', [TemoingnageController::class, 'videotemoingnages']);

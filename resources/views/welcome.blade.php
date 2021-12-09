@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="http://creative-tim.com">
+                <a href="">
                      <div class="logo-container">
                         <div class="logo">
                             <img src="assets/img/new_logo.png">
@@ -52,8 +52,10 @@
 			  @if (Route::has('login'))
                     @auth
                     <li><a class="btn btn-round btn-default" href="{{ url('/dashboard') }}" style=background-color:black;>Dashboard</a></li>
+                
+                    <li><a class="btn btn-round btn-default" href="{{ url('/dashboard') }}" style=background-color:black;>{{ Auth::user()->name }}</a></li>
 					@else
-                    <li><a href="{{ route('login') }}" style=background-color:black;>Login</a></li>
+                    <li><a href="{{ route('login') }}" style=background-color:black; class="btn btn-round btn-default">Login</a></li>
 					@if (Route::has('register'))
 					<li><a href="{{ route('register') }}" class="btn btn-round btn-default" style=background-color:black;>Register</a></li>
 					@endif
@@ -174,8 +176,9 @@
     <!--     end extras -->    
     </div>
  
-@endif   <!--     end extras -->    
+  <!--     end extras -->    
     </div>
+    @endif 
     <?php  
     use App\Models\TemoignageModel;
     

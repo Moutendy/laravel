@@ -41,7 +41,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="">Bienvenu</a>
+              <a class="navbar-brand" href="">{{ Auth::user()->name }}</a>
+             
             </div>
         
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,13 +54,21 @@
                       <ul class="dropdown-menu">
                         <li><a href="/livreformation">Livre</a></li>
                         <li><a href="/formationuser">Formations</a></li>
-                     
+                   
                         <li class="divider"></li>
-                        <li><a href="/">Home</a></li>
+                        
                       </ul>
                 </li>
                 <li>
                     <a href="javascript:void(0);" data-toggle="search" class="hidden-xs"><i class="fa fa-search"></i></a>
+                </li>
+                <li>
+                <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                      <a class="navbar-brand" href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">Deconnexion</a>
+                                                </form>
                 </li>
               </ul>
                <form class="navbar-form navbar-left navbar-search-form" role="search">                  
