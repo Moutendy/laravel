@@ -524,9 +524,9 @@
 
 <!-- end main -->
 
-<div class="parallax-pro">
-    <div class="img-src" style="background-image: url('http://get-shit-done-pro.herokuapp.com/assets/img/bg6.jpg');"></div>
-    <div class="container">
+<div class="parallax-pro" >
+    <div class="img-src" ></div>
+    <div class="container" style="background-image: url('http://get-shit-done-pro.herokuapp.com/assets/img/bg6.jpg');">
         <div class="row">
             <div class="col-md-12 text-center">
                 <h1>
@@ -570,7 +570,7 @@ use App\Models\ContactModel;
                     </small>
                 </h1>
                  <div class="actions">
-                     <a class="btn btn-lg btn-warning btn-fill" href="http://gsdk.creative-tim.com/?ref=get-shit-done">Suivez Nous</a>
+                     <a class="btn btn-lg btn-warning btn-fill" href="">Suivez Nous</a>
                 </div>
             </div>
         </div>
@@ -578,14 +578,14 @@ use App\Models\ContactModel;
         <div class="row">
              <div class="col-md-12 text-center">
                 <div class="credits">
-                    &copy; <script>document.write(new Date().getFullYear())</script> Get Shit Done Kit by <a href="http://creative-tim.com"> Creative Tim</a>, made with <i class="fa fa-heart heart" alt="love"></i> for a better web.
+                    &copy; <script>document.write(new Date().getFullYear())</script> Get Shit Done Kit by <a href=""> Creative Tim</a>, made with <i class="fa fa-heart heart" alt="love"></i> for a better web.
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-
+</div>
 </body>
 
     <script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
