@@ -52,7 +52,7 @@
 					</div>
                  
 					<div class="column is-one-third has-text-left">
-                    <form method="post" action="/envoitemoignage">
+                    <form method="post" action="/envoitemoignage" enctype="multipart/form-data">
                     {{ csrf_field() }}
 						<div class="field">
 							<label class="label">Name</label>

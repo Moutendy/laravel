@@ -16,8 +16,8 @@ class CreateLivreAModelsTable extends Migration
         Schema::create('livre_a_models', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->string('libelle');
-            $table->string('description');
+            $table->text('libelle');
+            $table->text('description');
             $table->string('image');
             $table->string('video');
             $table->timestamps();

@@ -22,7 +22,7 @@
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="code"  value=<?php echo $formation->code; ?> >
+                    <input class="input is-small" type="text" name="code"  value=<?php echo $formation->code; ?> disabled>
                   </div>
                 </div>
 

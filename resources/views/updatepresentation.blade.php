@@ -15,35 +15,35 @@
   <body>
             <section class="container">   
             <div class="column right has-text-centered">
-                <img src="/storage/teste.jpg">
-              <h1 class="title is-4">Formation</h1>
-              <p class="description">nouvelle Formation</p>
+            
+              <h1 class="title is-4">Presentation</h1>
+              <p class="description">nouvelle Presentation</p>
               <form form method="post" action="/updatepostpresentation" enctype="multipart/form-data">
               {{ csrf_field() }}
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="code"  value=<?php echo $formation->code; ?> >
+                    <input class="input is-small" type="text" name="code" placeholder="<?php echo $formation->code; ?>"  value="<?php echo $formation->code; ?>" >
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="libelle" placeholder="libelle" value=<?php echo $formation->libelle; ?>>
+                    <input class="input is-small" type="text" name="libelle" placeholder="libelle" value="<?php echo $formation->libelle; ?>">
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="description" placeholder="description" value=<?php echo $formation->description; ?>>
+                    <input class="input is-small" type="text" name="description" placeholder="description" value="<?php echo $formation->description; ?>">
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="image" placeholder="image" value=<?php echo $formation->image; ?>>
+                    <input class="input is-small" type="file" name="image" placeholder="image" value="<?php echo $formation->image; ?>">
                   </div>
                 </div>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="file" name="video" placeholder="video" value=<?php echo $formation->video; ?>>
+                    <input class="input is-small" type="file" name="video" placeholder="video" value="<?php echo $formation->video; ?>">
                   </div>
                 </div>
                 

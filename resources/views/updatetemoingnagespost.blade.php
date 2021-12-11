@@ -136,7 +136,7 @@
 					<div class="field">
 							<label >Code</label>
 							<div class="control">
-								<input class="input is-small" type="text"  name="code" value="{{$temoignage->code}}">
+								<input class="input is-small" type="text"  name="code" value="{{$temoignage->code}}" disabled>
 							</div>
 						</div>
 						<div class="field">

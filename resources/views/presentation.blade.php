@@ -43,8 +43,8 @@
             <table id="fresh-table" class="table">
         <thead>
             <tr>
-            <th>libelle</th>
-      <th>code</th>
+            <th>code</th>
+      <th>libelle</th>
       <th>description</abbr></th>
       <th>image</th>
       <th>video</th>

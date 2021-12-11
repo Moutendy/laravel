@@ -31,7 +31,7 @@
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-small" type="text" name="code" value="{{$livres->code}}">
+                    <input class="input is-small" type="text" name="code" value="{{$livres->code}}" disabled>
                     @if($errors->has('code'))
                     <p class="subtitle colored is-4">{{$errors->first('code')}}</p>
                     @endif

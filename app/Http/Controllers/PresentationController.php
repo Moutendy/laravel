@@ -37,11 +37,11 @@ class PresentationController extends Controller
     {
         $supprimer = PresentationModel::find($id);
         $supprimer->delete();
-       return back();;
+       return back();
     }
     public  function updatepost(Request $resultat)
     {
-       $formationModels= new PresentationModel;
+       $presentationModels= new PresentationModel;
        $this->validate($resultat, [
         'video' => 'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
         ]);
@@ -56,10 +56,10 @@ class PresentationController extends Controller
        
         'image' => ['required'],
     ]);
-       $formationModels->code=request('code');
-       $formation= PresentationModel::find($formationModels->code);
-       $formationModels->description=request('description');
-       $formationModels->libelle=request('libelle');
+       $presentationModels->code=request('code');
+       $presentation= PresentationModel::find($presentationModels->code);
+       $presentationModels->description=request('description');
+       $presentationModels->libelle=request('libelle');
       
 
         //video
@@ -67,25 +67,24 @@ class PresentationController extends Controller
         $namevideo = $filevideo->getClientOriginalName();
         $extensionvideo = $filevideo->getClientOriginalExtension();
         $resultat->file('video')->move('storage',$namevideo);
-        $formationModels->video=$namevideo;
+        $presentationModels->video=$namevideo;
 
        //image
        $fileimage = $resultat->file('image');
        $name = $fileimage->getClientOriginalName();
        $extensionimage = $fileimage->getClientOriginalExtension();
        $resultat->file('image')->move('storage',$name);
-       $formationModels->image=$name;
+       $presentationModels->image=$name;
            
     
       
+      
 
-
-      // $formationModels->save();
-       $formationModels = PresentationModel::where('code',request('code'))
-       ->update(['image'=>$formationModels->image,'video'=>$formationModels->video,
-       'description'=>$formationModels->description,'libelle'=>$formationModels->libelle]);
-    
-       return redirect('/ajouterpresentation');
+    $presentationModels = PresentationModel::where('code',request('code'))
+    ->update(['image'=>$presentationModels->image,'video'=>$presentationModels->video,
+    'description'=>$presentationModels->description,'libelle'=>$presentationModels->libelle]);
+ 
+    return view('presentation')->with($resultat->code);   
    }
 
 
